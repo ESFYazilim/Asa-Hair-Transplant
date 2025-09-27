@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Contact = () => {
+  const { content } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -22,54 +24,60 @@ const Contact = () => {
     });
   };
 
-  const contactInfo = [
+  const contactIcons = [Phone, Mail, MapPin, Clock];
+  
+  const contactInfo = content.contact.info.map((info, index) => ({
+    ...info,
+    icon: contactIcons[index]
+  }));
+
+  /*const contactInfo = [
     {
       icon: Phone,
-      title: 'Telephone',
-      details: '+1 (555) 123-4567',
-      subtitle: '7/27 Destek'
+      title: 'Telefon',
+      details: '+90 212 XXX XX XX',
+      subtitle: '7/24 Destek Hattı'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'contact@asahair.com',
-      subtitle: 'Genel sorular için'
+      details: 'info@asasacekim.com',
+      subtitle: 'Hızlı yanıt garantisi'
     },
     {
       icon: MapPin,
-      title: 'Adres',
-      details: 'Bağdat Caddesi No:123, Kadıköy, İstanbul',
-      subtitle: 'istanbul, Türkiye'
+      title: 'Address',
+      details: 'Nişantaşı, Medikal Plaza, İstanbul',
+      subtitle: 'Türkiye'
     },
     {
       icon: Clock,
-      title: 'Saat',
-      details: 'Pzt-Pzr: 08:00 - 20:00',
-      subtitle: 'Her zaman buradayız'
+      title: 'Çalışma Saatleri',
+      details: 'Pzt-Pzr: 09:00 - 19:00',
+      subtitle: 'Randevu sistemi'
     }
-  ];
+  ];*/
 
   return (
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light mb-4 tracking-tight">
-            Get In <span className="font-bold text-emerald-400">Touch</span>
+          <h2 className="text-3xl md:text-4xl font-light mb-4 tracking-tight">
+            <span className="font-bold text-emerald-400">{content.contact.title}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Ready to begin your journey? Contact us today to schedule your consultation 
-            and take the first step toward excellence.
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            {content.contact.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="bg-gray-800 rounded-lg p-8 shadow-2xl">
-            <h3 className="text-2xl font-bold mb-6 text-emerald-400">Send us a message</h3>
+            <h3 className="text-2xl font-bold mb-6 text-emerald-400">{content.contact.form.title}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
+                  <label className="block text-sm font-medium mb-2">{content.contact.form.name}</label>
                   <input
                     type="text"
                     name="name"
@@ -80,7 +88,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2">{content.contact.form.email}</label>
                   <input
                     type="email"
                     name="email"
@@ -92,7 +100,7 @@ const Contact = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Phone</label>
+                <label className="block text-sm font-medium mb-2">{content.contact.form.phone}</label>
                 <input
                   type="tel"
                   name="phone"
@@ -102,7 +110,7 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
+                <label className="block text-sm font-medium mb-2">{content.contact.form.message}</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -116,7 +124,7 @@ const Contact = () => {
                 type="submit"
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
               >
-                Send Message
+                {content.contact.form.submit}
               </button>
             </form>
           </div>
@@ -131,8 +139,8 @@ const Contact = () => {
                     <Icon size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-emerald-400 mb-1">{info.title}</h4>
-                    <p className="text-lg text-white mb-1">{info.details}</p>
+                    <h4 className="text-lg font-bold text-emerald-400 mb-1">{info.title}</h4>
+                    <p className="text-base text-white mb-1">{info.details}</p>
                     <p className="text-gray-400">{info.subtitle}</p>
                   </div>
                 </div>
@@ -144,7 +152,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
           <p className="text-gray-400">
-            &copy; 2025 Premium Care. All rights reserved. | Privacy Policy | Terms of Service
+            &copy; 2025 ASA SAÇ EKİM. Tüm hakları saklıdır. | Gizlilik Politikası | Hizmet Şartları
           </p>
         </div>
       </div>

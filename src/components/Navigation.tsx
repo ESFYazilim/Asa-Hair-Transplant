@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
+import LanguageSelector from './LanguageSelector';
 
 const Navigation = () => {
+  const { content } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -14,12 +17,12 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: 'Ana Sayfa' },
-    { href: '#services', label: 'Hizmetler' },
-    { href: '#about', label: 'Hakkımızda' },
-    { href: '#achievements', label: 'Başarılar' },
-    { href: '#testimonials', label: 'Yorumlar' },
-    { href: '#contact', label: 'İletişim' }
+    { href: '#home', label: content.navigation.home },
+    { href: '#services', label: content.navigation.services },
+    { href: '#about', label: content.navigation.about },
+    { href: '#achievements', label: content.navigation.achievements },
+    { href: '#testimonials', label: content.navigation.testimonials },
+    { href: '#contact', label: content.navigation.contact }
   ];
 
   const scrollToSection = (href: string) => {
@@ -38,13 +41,13 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <div className="text-2xl font-bold text-emerald-600 tracking-tight">
-              Premium Bakım
+              ASA SAÇ EKİM
             </div>
           </div>
 
           {/* Masaüstü Navigasyon */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-center space-x-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
@@ -54,17 +57,21 @@ const Navigation = () => {
                   {link.label}
                 </button>
               ))}
+              <LanguageSelector />
             </div>
           </div>
 
           {/* Mobil menü butonu */}
           <div className="md:hidden">
+            <div className="flex items-center space-x-2">
+              <LanguageSelector />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-emerald-600 p-2"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
+            </div>
           </div>
         </div>
 

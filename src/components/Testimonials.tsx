@@ -1,40 +1,55 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Testimonials = () => {
-  const testimonials = [
+  const { content } = useLanguage();
+  
+  const testimonialImages = [
+    'https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg?auto=compress&cs=tinysrgb&w=200',
+    'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200',
+    'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200'
+  ];
+  
+  const testimonials = content.testimonials.items.map((testimonial, index) => ({
+    ...testimonial,
+    rating: 5,
+    image: testimonialImages[index]
+  }));
+
+  /*const testimonials = [
     {
-      name: 'Osman Fatih Demirhan',
-      role: 'Yazılımcı',
-      content: 'Profesyonellik ve ilgi düzeyi tüm beklentilerimi aştı. Sonuçlar kendini gösteriyor ve daha mutlu olamazdım.',
+      name: 'Mehmet Yılmaz',
+      role: 'Mühendis',
+      content: 'DHI saç ekimi sonrasında beklediğimden çok daha doğal sonuçlar aldım. PRP tedavisi ile desteklenen süreç mükemmeldi.',
       rating: 5,
       image: 'https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg?auto=compress&cs=tinysrgb&w=200'
     },
     {
-      name: 'Emre Yılmaz',
-      role: 'Girişimci',
-      content: 'Danışmanlıktan takip bakımına kadar olağanüstü hizmet. Ekibin uzmanlığı ve detaylara gösterdiği özen gerçekten etkileyici.',
+      name: 'John Smith',
+      role: 'Business Manager',
+      content: 'Hair transplant Turkey experience was exceptional. FUE technique and aftercare service exceeded my expectations completely.',
       rating: 5,
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200'
     },
     {
-      name: 'Arda Barhan',
-      role: 'Aşçı',
-      content: 'Kendime olan güvenimi büyük ölçüde artıran dönüştürücü bir deneyim. Bu hizmeti düşünen herkese kesinlikle tavsiye ederim.',
+      name: 'Hans Mueller',
+      role: 'Architekt',
+      content: 'Die Haartransplantation in der Türkei war perfekt organisiert. DHI-Technik und Nachsorge waren erstklassig.',
       rating: 5,
-      image: 'https://media.licdn.com/dms/image/v2/D4D35AQFy5afvhF3uJg/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1659303262524?e=1757023200&v=beta&t=ncpXOZ76l-j2o4Y8SDj-uKOPYhbq3_3ZwRUn7QHqc1A'
+      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200'
     }
-  ];
+  ];*/
 
   return (
     <section id="testimonials" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-tight">
-            <span className="font-bold text-emerald-600">Hastalarımız</span> Ne Diyor?
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight">
+            <span className="font-bold text-emerald-600">{content.testimonials.title}</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Bakımımızı bize emanet eden değerli hastalarımızın gerçek deneyimleri.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {content.testimonials.subtitle}
           </p>
         </div>
 

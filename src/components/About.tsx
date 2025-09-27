@@ -1,38 +1,30 @@
 import React from 'react';
 import { CheckCircle } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const About = () => {
-  const highlights = [
-    '15 yılı aşkın profesyonel mükemmellik',
-    'Kurul onaylı uzmanlar',
-    'Son teknoloji tesisler',
-    'Kişiye özel hasta bakımı',
-    'Uluslararası tanınırlık',
-    'Sürekli yenilik'
-  ];
+  const { content } = useLanguage();
 
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6 tracking-tight">
-              <span className="font-bold text-emerald-600">Kurumumuz</span> Hakkında
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6 tracking-tight">
+              <span className="font-bold text-emerald-600">{content.about.title}</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              En yüksek standartta profesyonel bakım sunmaya kendimizi adadık. 
-              En son teknolojiyi şefkatli hizmetle birleştiriyoruz. Uzman ekibimiz, 
-              sektörde bizi öne çıkaran onlarca yıllık deneyim ve mükemmellik taahhüdü ile hizmet vermektedir.
+            <p className="text-base text-gray-600 mb-6 leading-relaxed">
+              {content.about.description1}
             </p>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Her hastamız, en iyi deneyim ve sonuçları sağlamak için tasarlanmış lüks ve konforlu ortamımızda kişiye özel ilgi görmektedir.
+            <p className="text-base text-gray-600 mb-8 leading-relaxed">
+              {content.about.description2}
             </p>
             
             <div className="space-y-4">
-              {highlights.map((highlight, index) => (
+              {content.about.highlights.map((highlight, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <CheckCircle className="text-emerald-600 flex-shrink-0" size={24} />
-                  <span className="text-gray-700 text-lg">{highlight}</span>
+                  <span className="text-gray-700 text-base">{highlight}</span>
                 </div>
               ))}
             </div>

@@ -1,43 +1,61 @@
 import React from 'react';
-import { Shield, Award, Users, Clock } from 'lucide-react';
+import { Scissors, Zap, Droplets, Sparkles } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Services = () => {
-  const services = [
+  const { content } = useLanguage();
+  
+  const serviceIcons = [Scissors, Zap, Droplets, Sparkles];
+  
+  const serviceImages = [
+    'https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4173626/pexels-photo-4173626.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4173530/pexels-photo-4173530.jpeg?auto=compress&cs=tinysrgb&w=600'
+  ];
+
+  const services = content.services.items.map((service, index) => ({
+    ...service,
+    icon: serviceIcons[index],
+    image: serviceImages[index]
+  }));
+
+  /*const services = [
     {
-      icon: Shield,
-      title: 'Premium Danışmanlık',
-      description: 'Uzman ekibimizle kapsamlı değerlendirme ve kişiye özel tedavi planlaması.',
-      image: 'https://images.pexels.com/photos/5327653/pexels-photo-5327653.jpeg?auto=compress&cs=tinysrgb&w=600'
+      icon: Scissors,
+      title: 'DHI Saç Ekimi',
+      description: 'Direct Hair Implantation tekniği ile kanal açmadan direkt saç ekimi. Daha hızlı iyileşme ve doğal sonuçlar.',
+      image: 'https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      icon: Award,
-      title: 'İleri Düzey Prosedürler',
-      description: 'En son teknoloji ve kanıtlanmış yöntemlerle uygulanan ileri düzey teknikler.',
+      icon: Zap,
+      title: 'FUE Hair Transplant',
+      description: 'Follicular Unit Extraction yöntemi ile tek tek folikül alımı. Iz bırakmayan modern saç ekim tekniği.',
       image: 'https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      icon: Users,
-      title: 'Kişiye Özel Bakım',
-      description: 'Benzersiz ihtiyaç ve hedeflerinize özel olarak tasarlanmış tedavi planları.',
+      icon: Droplets,
+      title: 'PRP Tedavisi',
+      description: 'Platelet Rich Plasma ile saç köklerinin güçlendirilmesi. Saç dökülmesini durduran doğal tedavi yöntemi.',
       image: 'https://images.pexels.com/photos/4173626/pexels-photo-4173626.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-      icon: Clock,
-      title: 'Sürekli Destek',
-      description: 'En iyi sonuçlar için kapsamlı takip ve uzun vadeli destek.',
+      icon: Sparkles,
+      title: 'Kök Hücre ve Eksozom',
+      description: 'Yenilikçi kök hücre ve eksozom tedavileri ile saç foliküllerinin rejenerasyonu ve yoğunlaştırılması.',
       image: 'https://images.pexels.com/photos/4173530/pexels-photo-4173530.jpeg?auto=compress&cs=tinysrgb&w=600'
     }
-  ];
+  ];*/
 
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-tight">
-            <span className="font-bold text-emerald-600">Hizmetlerimiz</span>
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight">
+            <span className="font-bold text-emerald-600">{content.services.title}</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Hassasiyet ve özenle sunulan kapsamlı premium hizmetlerimizle mükemmelliği yaşayın.
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {content.services.subtitle}
           </p>
         </div>
 

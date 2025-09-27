@@ -1,7 +1,10 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Hero = () => {
+  const { content } = useLanguage();
+
   const scrollToServices = () => {
     const element = document.querySelector('#services');
     if (element) {
@@ -24,25 +27,25 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight leading-tight">
-            Excellence in
-            <span className="block font-bold text-emerald-300">Professional Care</span>
+          <h1 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight leading-tight">
+            {content.hero.title}
+            <span className="block font-bold text-emerald-300">{content.hero.subtitle}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
-            Where luxury meets expertise. Experience world-class service with personalized attention in our state-of-the-art facilities.
+          <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
+            {content.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={scrollToServices}
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
-              Discover Our Services
+              {content.hero.cta1}
             </button>
             <button
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
-              Schedule Consultation
+              {content.hero.cta2}
             </button>
           </div>
         </div>

@@ -1,43 +1,53 @@
 import React from 'react';
 import { TrendingUp, Users, Award, Star } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Achievements = () => {
-  const stats = [
+  const { content } = useLanguage();
+  
+  const statIcons = [Users, Award, Star, TrendingUp];
+  
+  const stats = content.achievements.stats.map((stat, index) => ({
+    ...stat,
+    icon: statIcons[index]
+  }));
+
+  /*const stats = [
     {
       icon: Users,
-      number: '5,000+',
-      label: 'Satisfied Patients',
-      description: 'Trust our expertise'
+      number: '8,000+',
+      label: 'Başarılı Saç Ekimi',
+      description: 'DHI ve FUE ile'
     },
     {
       icon: Award,
       number: '15+',
-      label: 'Years Experience',
-      description: 'Proven excellence'
+      label: 'Yıl Deneyim',
+      description: 'Medikal estetik alanında'
     },
     {
       icon: Star,
       number: '98%',
-      label: 'Success Rate',
-      description: 'Outstanding results'
+      label: 'Hasta Memnuniyeti',
+      description: 'Saç ekimi sonuçları'
     },
     {
       icon: TrendingUp,
       number: '50+',
-      label: 'Awards Won',
-      description: 'Industry recognition'
+      label: 'Ülkeden Hasta',
+      description: 'Medikal turizm'
     }
-  ];
+  ];*/
 
   return (
     <section id="achievements" className="py-20 bg-emerald-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4 tracking-tight">
-            Our <span className="font-bold text-emerald-600">Achievements</span>
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4 tracking-tight">
+            <span className="font-bold text-emerald-600">{content.achievements.title}</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Numbers that reflect our commitment to excellence and the trust our patients place in us.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            {content.achievements.subtitle}
           </p>
         </div>
 
@@ -52,8 +62,8 @@ const Achievements = () => {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
                   <Icon className="text-emerald-600" size={32} />
                 </div>
-                <div className="text-4xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                <div className="text-xl font-semibold text-gray-800 mb-2">{stat.label}</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">{stat.label}</div>
                 <div className="text-gray-600">{stat.description}</div>
               </div>
             );
