@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
+import { sendContactEmailSimple } from '../services/emailService';
 
 const Contact = () => {
   const { content } = useLanguage();
@@ -10,21 +11,29 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`${content.contact.form.title} - ${formData.name}`);
-    const body = encodeURIComponent(
-      `${content.contact.form.name}: ${formData.name}\n` +
-      `${content.contact.form.email}: ${formData.email}\n` +
-      `${content.contact.form.phone}: ${formData.phone}\n\n` +
-      `${content.contact.form.message}:\n${formData.message}`
-    );
-    
-    const mailtoLink = `mailto:info@asahairtransplant.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const success = await sendContactEmailSimple(formData);
+      
+      if (success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -132,10 +141,27 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl"
+                disabled={isSubmitting}
+                className={`w-full font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-emerald-600 hover:bg-emerald-700'
+                } text-white`}
               >
-                {content.contact.form.submit}
+                {isSubmitting ? 'Gönderiliyor...' : content.contact.form.submit}
               </button>
+              
+              {submitStatus === 'success' && (
+                <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                  ✅ Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                  ❌ Mesaj gönderilemedi. Lütfen tekrar deneyin veya WhatsApp üzerinden iletişime geçin.
+                </div>
+              )}
             </form>
           </div>
 

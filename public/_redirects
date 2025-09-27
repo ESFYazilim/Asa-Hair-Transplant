@@ -1,0 +1,2 @@
+# API routes for email sending
+/api/* /.netlify/functions/:splat 200
