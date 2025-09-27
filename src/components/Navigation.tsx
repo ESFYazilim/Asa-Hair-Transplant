@@ -44,13 +44,8 @@ const Navigation = () => {
               <img 
                 src="/Asa Hair Transplant-renkli.png" 
                 alt="ASA Hair Transplant Logo" 
-                className="h-12 w-auto"
+                className="h-14 w-auto"
               />
-              <div className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
-                isScrolled ? 'text-emerald-600' : 'text-white'
-              }`}>
-                ASA HAIR TRANSPLANT
-              </div>
             </div>
           </div>
 
