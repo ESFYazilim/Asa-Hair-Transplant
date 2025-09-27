@@ -3,10 +3,12 @@ import { useLanguage } from './hooks/useLanguage';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Treatments from './components/Treatments';
 import About from './components/About';
 import Achievements from './components/Achievements';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   const { content } = useLanguage();
@@ -38,10 +40,12 @@ function App() {
       <Navigation />
       <Hero />
       <Services />
+      <Treatments />
       <About />
       <Achievements />
       <Testimonials />
       <Contact />
+      <WhatsAppButton />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
 const Hero = () => {
@@ -46,6 +46,17 @@ const Hero = () => {
               className="border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
               {content.hero.cta2}
+            </button>
+            <button
+              onClick={() => {
+                const message = encodeURIComponent(`Merhaba! ${content.hero.title} hakkında bilgi almak istiyorum.`);
+                const whatsappUrl = `https://wa.me/${content.contact.whatsapp.number.replace(/[^0-9]/g, '')}?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+              }}
+              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
+            >
+              <MessageCircle size={20} />
+              {content.hero.whatsapp}
             </button>
           </div>
         </div>

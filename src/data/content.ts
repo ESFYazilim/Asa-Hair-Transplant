@@ -2,6 +2,7 @@ export interface ContentData {
   navigation: {
     home: string;
     services: string;
+    treatments: string;
     about: string;
     achievements: string;
     testimonials: string;
@@ -13,6 +14,7 @@ export interface ContentData {
     description: string;
     cta1: string;
     cta2: string;
+    whatsapp: string;
   };
   services: {
     title: string;
@@ -20,6 +22,21 @@ export interface ContentData {
     items: Array<{
       title: string;
       description: string;
+    }>;
+  };
+  treatments: {
+    title: string;
+    subtitle: string;
+    categories: Array<{
+      title: string;
+      items: Array<{
+        title: string;
+        description: string;
+        benefits: string[];
+        process: string;
+        duration: string;
+        recovery: string;
+      }>;
     }>;
   };
   about: {
@@ -49,6 +66,11 @@ export interface ContentData {
   contact: {
     title: string;
     subtitle: string;
+    whatsapp: {
+      title: string;
+      subtitle: string;
+      number: string;
+    };
     form: {
       title: string;
       name: string;
@@ -74,6 +96,7 @@ export const content: Record<string, ContentData> = {
     navigation: {
       home: 'Ana Sayfa',
       services: 'Hizmetler',
+      treatments: 'Tedaviler',
       about: 'Hakkımızda',
       achievements: 'Başarılar',
       testimonials: 'Hasta Yorumları',
@@ -84,7 +107,8 @@ export const content: Record<string, ContentData> = {
       subtitle: 'DHI ve FUE Tekniği ile Profesyonel Hair Transplant',
       description: 'Kök hücre, PRP ve mezoterapi destekli saç ekimi ile doğal sonuçlar. Türkiye\'nin en deneyimli saç ekim uzmanları ile medikal estetik hizmetleri.',
       cta1: 'Ücretsiz Konsültasyon',
-      cta2: 'Hizmetlerimizi Keşfedin'
+      cta2: 'Hizmetlerimizi Keşfedin',
+      whatsapp: 'WhatsApp İletişim'
     },
     services: {
       title: 'Saç Ekimi ve Medikal Estetik Hizmetlerimiz',
@@ -105,6 +129,138 @@ export const content: Record<string, ContentData> = {
         {
           title: 'Kök Hücre ve Eksozom',
           description: 'Yenilikçi kök hücre ve eksozom tedavileri ile saç foliküllerinin rejenerasyonu ve yoğunlaştırılması.'
+        }
+      ]
+    },
+    treatments: {
+      title: 'Detaylı Tedavi Bilgileri',
+      subtitle: 'Saç ekimi, sakal ekimi ve destekleyici tedaviler hakkında kapsamlı bilgiler.',
+      categories: [
+        {
+          title: 'Saç Ekimi Teknikleri',
+          items: [
+            {
+              title: 'DHI Saç Ekimi',
+              description: 'Direct Hair Implantation (DHI) tekniği, saç foliküllerinin özel kalemler kullanılarak direkt olarak ekildiği en gelişmiş yöntemdir.',
+              benefits: [
+                'Kanal açma işlemi gerektirmez',
+                'Daha hızlı iyileşme süreci',
+                'Minimum travma ve kanama',
+                'Doğal saç çıkış açısı',
+                'Yoğun ekim imkanı'
+              ],
+              process: 'Foliküller tek tek alınır ve özel DHI kalemi ile direkt ekilir. İşlem lokal anestezi altında yapılır.',
+              duration: '6-8 saat',
+              recovery: '3-5 gün'
+            },
+            {
+              title: 'FUE Saç Ekimi',
+              description: 'Follicular Unit Extraction (FUE) yöntemi ile saç folikülleri tek tek alınarak hedef bölgeye nakledilir.',
+              benefits: [
+                'İz bırakmayan teknik',
+                'Hızlı iyileşme',
+                'Doğal görünüm',
+                'Geniş alan ekimi',
+                'Minimal ağrı'
+              ],
+              process: 'Foliküller mikromotor ile alınır, kanallar açılır ve foliküller yerleştirilir.',
+              duration: '4-6 saat',
+              recovery: '7-10 gün'
+            }
+          ]
+        },
+        {
+          title: 'Sakal ve Bıyık Ekimi',
+          items: [
+            {
+              title: 'Sakal Ekimi',
+              description: 'Sakal bölgesindeki seyreklik veya tamamen sakal olmaması durumunda uygulanan ekim işlemidir.',
+              benefits: [
+                'Doğal sakal görünümü',
+                'Kalıcı sonuçlar',
+                'İstenilen yoğunluk',
+                'Şekil verme imkanı',
+                'Özgüven artışı'
+              ],
+              process: 'Ense bölgesinden alınan foliküller sakal bölgesine FUE veya DHI tekniği ile ekilir.',
+              duration: '3-5 saat',
+              recovery: '5-7 gün'
+            },
+            {
+              title: 'Bıyık Ekimi',
+              description: 'Bıyık bölgesindeki seyreklik için uygulanan hassas ekim işlemidir.',
+              benefits: [
+                'Doğal bıyık çizgisi',
+                'Yoğun görünüm',
+                'Kalıcı sonuç',
+                'Estetik görünüm'
+              ],
+              process: 'Tek tek folikül alımı ve hassas ekim ile doğal bıyık çizgisi oluşturulur.',
+              duration: '2-3 saat',
+              recovery: '3-5 gün'
+            }
+          ]
+        },
+        {
+          title: 'Destekleyici Tedaviler',
+          items: [
+            {
+              title: 'PRP Tedavisi',
+              description: 'Platelet Rich Plasma (PRP) tedavisi, kişinin kendi kanından elde edilen trombositlerle saç köklerinin güçlendirilmesidir.',
+              benefits: [
+                'Saç dökülmesini durdurur',
+                'Saç kalitesini artırır',
+                'Doğal tedavi yöntemi',
+                'Yan etkisi yoktur',
+                'Saç yoğunluğunu artırır'
+              ],
+              process: 'Kan alınır, santrifüj edilir ve elde edilen PRP saç derisine enjekte edilir.',
+              duration: '30-45 dakika',
+              recovery: 'Hemen normal yaşama dönüş'
+            },
+            {
+              title: 'Mezoterapi',
+              description: 'Saç derisine vitamin, mineral ve büyüme faktörlerinin enjekte edildiği tedavi yöntemidir.',
+              benefits: [
+                'Saç köklerini besler',
+                'Kan dolaşımını artırır',
+                'Saç büyümesini hızlandırır',
+                'Saç kalitesini iyileştirir',
+                'Saç dökülmesini azaltır'
+              ],
+              process: 'Özel vitamin kokteyli saç derisine ince iğnelerle enjekte edilir.',
+              duration: '20-30 dakika',
+              recovery: 'Hemen normal yaşama dönüş'
+            },
+            {
+              title: 'Kök Hücre Tedavisi',
+              description: 'Adipoz kaynaklı kök hücreler ile saç foliküllerinin rejenerasyonu ve yenilenmesi sağlanır.',
+              benefits: [
+                'Folikül rejenerasyonu',
+                'Saç kalitesi artışı',
+                'Uzun süreli etki',
+                'Doğal yenilenme',
+                'Anti-aging etkisi'
+              ],
+              process: 'Yağ dokusundan kök hücreler izole edilir ve saç derisine uygulanır.',
+              duration: '2-3 saat',
+              recovery: '1-2 gün'
+            },
+            {
+              title: 'Eksozom Tedavisi',
+              description: 'Kök hücre kaynaklı eksozomlar ile saç foliküllerinin aktivasyonu ve güçlendirilmesi.',
+              benefits: [
+                'Hızlı sonuç',
+                'Güçlü rejenerasyon',
+                'Minimal invaziv',
+                'Yüksek etkinlik',
+                'Güvenli uygulama'
+              ],
+              process: 'Eksozom solüsyonu saç derisine mikroenjeksiyon ile uygulanır.',
+              duration: '45-60 dakika',
+              recovery: 'Hemen normal yaşama dönüş'
+            }
+          ]
         }
       ]
     },
@@ -171,6 +327,11 @@ export const content: Record<string, ContentData> = {
     contact: {
       title: 'Saç Ekimi Konsültasyonu',
       subtitle: 'DHI, FUE saç ekimi, PRP ve kök hücre tedavileri hakkında ücretsiz konsültasyon için bizimle iletişime geçin.',
+      whatsapp: {
+        title: 'WhatsApp İletişim',
+        subtitle: 'Hızlı destek için WhatsApp üzerinden ulaşın',
+        number: '+905551234567'
+      },
       form: {
         title: 'Ücretsiz Konsültasyon Formu',
         name: 'Ad Soyad',
@@ -211,6 +372,7 @@ export const content: Record<string, ContentData> = {
     navigation: {
       home: 'Home',
       services: 'Services',
+      treatments: 'Treatments',
       about: 'About Us',
       achievements: 'Achievements',
       testimonials: 'Patient Reviews',
@@ -221,7 +383,8 @@ export const content: Record<string, ContentData> = {
       subtitle: 'Professional DHI and FUE Hair Transplant Techniques',
       description: 'Natural results with stem cell, PRP and mesotherapy supported hair transplant. Medical aesthetic services with Turkey\'s most experienced hair transplant specialists.',
       cta1: 'Free Consultation',
-      cta2: 'Discover Our Services'
+      cta2: 'Discover Our Services',
+      whatsapp: 'WhatsApp Contact'
     },
     services: {
       title: 'Hair Transplant and Medical Aesthetic Services',
@@ -242,6 +405,138 @@ export const content: Record<string, ContentData> = {
         {
           title: 'Stem Cell & Exosome',
           description: 'Regeneration and densification of hair follicles with innovative stem cell and exosome treatments.'
+        }
+      ]
+    },
+    treatments: {
+      title: 'Detailed Treatment Information',
+      subtitle: 'Comprehensive information about hair transplant, beard transplant and supportive treatments.',
+      categories: [
+        {
+          title: 'Hair Transplant Techniques',
+          items: [
+            {
+              title: 'DHI Hair Transplant',
+              description: 'Direct Hair Implantation (DHI) technique is the most advanced method where hair follicles are directly implanted using special pens.',
+              benefits: [
+                'No channel opening required',
+                'Faster healing process',
+                'Minimal trauma and bleeding',
+                'Natural hair growth angle',
+                'Dense implantation possibility'
+              ],
+              process: 'Follicles are extracted individually and directly implanted with special DHI pen. Procedure is performed under local anesthesia.',
+              duration: '6-8 hours',
+              recovery: '3-5 days'
+            },
+            {
+              title: 'FUE Hair Transplant',
+              description: 'Follicular Unit Extraction (FUE) method where hair follicles are individually extracted and transplanted to target area.',
+              benefits: [
+                'Scarless technique',
+                'Fast healing',
+                'Natural appearance',
+                'Large area transplantation',
+                'Minimal pain'
+              ],
+              process: 'Follicles are extracted with micromotor, channels are opened and follicles are placed.',
+              duration: '4-6 hours',
+              recovery: '7-10 days'
+            }
+          ]
+        },
+        {
+          title: 'Beard and Mustache Transplant',
+          items: [
+            {
+              title: 'Beard Transplant',
+              description: 'Transplantation procedure applied in case of sparse beard area or complete absence of beard.',
+              benefits: [
+                'Natural beard appearance',
+                'Permanent results',
+                'Desired density',
+                'Shaping possibility',
+                'Confidence boost'
+              ],
+              process: 'Follicles taken from nape area are transplanted to beard area with FUE or DHI technique.',
+              duration: '3-5 hours',
+              recovery: '5-7 days'
+            },
+            {
+              title: 'Mustache Transplant',
+              description: 'Precise transplantation procedure applied for sparse mustache area.',
+              benefits: [
+                'Natural mustache line',
+                'Dense appearance',
+                'Permanent result',
+                'Aesthetic appearance'
+              ],
+              process: 'Individual follicle extraction and precise transplantation creates natural mustache line.',
+              duration: '2-3 hours',
+              recovery: '3-5 days'
+            }
+          ]
+        },
+        {
+          title: 'Supportive Treatments',
+          items: [
+            {
+              title: 'PRP Treatment',
+              description: 'Platelet Rich Plasma (PRP) treatment strengthens hair roots with platelets obtained from person\'s own blood.',
+              benefits: [
+                'Stops hair loss',
+                'Improves hair quality',
+                'Natural treatment method',
+                'No side effects',
+                'Increases hair density'
+              ],
+              process: 'Blood is drawn, centrifuged and obtained PRP is injected into scalp.',
+              duration: '30-45 minutes',
+              recovery: 'Immediate return to normal life'
+            },
+            {
+              title: 'Mesotherapy',
+              description: 'Treatment method where vitamins, minerals and growth factors are injected into scalp.',
+              benefits: [
+                'Nourishes hair roots',
+                'Increases blood circulation',
+                'Accelerates hair growth',
+                'Improves hair quality',
+                'Reduces hair loss'
+              ],
+              process: 'Special vitamin cocktail is injected into scalp with fine needles.',
+              duration: '20-30 minutes',
+              recovery: 'Immediate return to normal life'
+            },
+            {
+              title: 'Stem Cell Treatment',
+              description: 'Regeneration and renewal of hair follicles with adipose-derived stem cells.',
+              benefits: [
+                'Follicle regeneration',
+                'Hair quality improvement',
+                'Long-lasting effect',
+                'Natural renewal',
+                'Anti-aging effect'
+              ],
+              process: 'Stem cells are isolated from adipose tissue and applied to scalp.',
+              duration: '2-3 hours',
+              recovery: '1-2 days'
+            },
+            {
+              title: 'Exosome Treatment',
+              description: 'Activation and strengthening of hair follicles with stem cell-derived exosomes.',
+              benefits: [
+                'Fast results',
+                'Strong regeneration',
+                'Minimally invasive',
+                'High effectiveness',
+                'Safe application'
+              ],
+              process: 'Exosome solution is applied to scalp with microinjection.',
+              duration: '45-60 minutes',
+              recovery: 'Immediate return to normal life'
+            }
+          ]
         }
       ]
     },
@@ -308,6 +603,11 @@ export const content: Record<string, ContentData> = {
     contact: {
       title: 'Hair Transplant Consultation',
       subtitle: 'Contact us for free consultation about DHI, FUE hair transplant, PRP and stem cell treatments.',
+      whatsapp: {
+        title: 'WhatsApp Contact',
+        subtitle: 'Reach us via WhatsApp for quick support',
+        number: '+905551234567'
+      },
       form: {
         title: 'Free Consultation Form',
         name: 'Full Name',
@@ -348,6 +648,7 @@ export const content: Record<string, ContentData> = {
     navigation: {
       home: 'Startseite',
       services: 'Leistungen',
+      treatments: 'Behandlungen',
       about: 'Über Uns',
       achievements: 'Erfolge',
       testimonials: 'Patientenbewertungen',
@@ -358,7 +659,8 @@ export const content: Record<string, ContentData> = {
       subtitle: 'Professionelle DHI und FUE Haartransplantation',
       description: 'Natürliche Ergebnisse mit Stammzellen, PRP und Mesotherapie unterstützter Haartransplantation. Medizinisch-ästhetische Dienstleistungen mit den erfahrensten Haartransplantations-Spezialisten der Türkei.',
       cta1: 'Kostenlose Beratung',
-      cta2: 'Unsere Leistungen'
+      cta2: 'Unsere Leistungen',
+      whatsapp: 'WhatsApp Kontakt'
     },
     services: {
       title: 'Haartransplantation und Medizinisch-Ästhetische Leistungen',
@@ -379,6 +681,138 @@ export const content: Record<string, ContentData> = {
         {
           title: 'Stammzellen & Exosome',
           description: 'Regeneration und Verdichtung der Haarfollikel mit innovativen Stammzell- und Exosom-Behandlungen.'
+        }
+      ]
+    },
+    treatments: {
+      title: 'Detaillierte Behandlungsinformationen',
+      subtitle: 'Umfassende Informationen über Haartransplantation, Barttransplantation und unterstützende Behandlungen.',
+      categories: [
+        {
+          title: 'Haartransplantationstechniken',
+          items: [
+            {
+              title: 'DHI Haartransplantation',
+              description: 'Direct Hair Implantation (DHI) Technik ist die fortschrittlichste Methode, bei der Haarfollikel mit speziellen Stiften direkt implantiert werden.',
+              benefits: [
+                'Keine Kanalöffnung erforderlich',
+                'Schnellerer Heilungsprozess',
+                'Minimales Trauma und Blutung',
+                'Natürlicher Haarwuchswinkel',
+                'Dichte Implantationsmöglichkeit'
+              ],
+              process: 'Follikel werden einzeln entnommen und direkt mit speziellem DHI-Stift implantiert. Eingriff erfolgt unter örtlicher Betäubung.',
+              duration: '6-8 Stunden',
+              recovery: '3-5 Tage'
+            },
+            {
+              title: 'FUE Haartransplantation',
+              description: 'Follicular Unit Extraction (FUE) Methode, bei der Haarfollikel einzeln entnommen und in den Zielbereich transplantiert werden.',
+              benefits: [
+                'Narbenlose Technik',
+                'Schnelle Heilung',
+                'Natürliches Aussehen',
+                'Großflächige Transplantation',
+                'Minimale Schmerzen'
+              ],
+              process: 'Follikel werden mit Mikromotor entnommen, Kanäle geöffnet und Follikel platziert.',
+              duration: '4-6 Stunden',
+              recovery: '7-10 Tage'
+            }
+          ]
+        },
+        {
+          title: 'Bart- und Schnurrbarttransplantation',
+          items: [
+            {
+              title: 'Barttransplantation',
+              description: 'Transplantationsverfahren bei spärlichem Bartwuchs oder völligem Fehlen des Bartes.',
+              benefits: [
+                'Natürliches Bartaussehen',
+                'Dauerhafte Ergebnisse',
+                'Gewünschte Dichte',
+                'Formgebungsmöglichkeit',
+                'Selbstvertrauen stärken'
+              ],
+              process: 'Follikel aus dem Nackenbereich werden mit FUE oder DHI-Technik in den Bartbereich transplantiert.',
+              duration: '3-5 Stunden',
+              recovery: '5-7 Tage'
+            },
+            {
+              title: 'Schnurrbarttransplantation',
+              description: 'Präzises Transplantationsverfahren für spärlichen Schnurrbartbereich.',
+              benefits: [
+                'Natürliche Schnurrbartlinie',
+                'Dichtes Aussehen',
+                'Dauerhaftes Ergebnis',
+                'Ästhetisches Aussehen'
+              ],
+              process: 'Einzelne Follikelentnahme und präzise Transplantation schafft natürliche Schnurrbartlinie.',
+              duration: '2-3 Stunden',
+              recovery: '3-5 Tage'
+            }
+          ]
+        },
+        {
+          title: 'Unterstützende Behandlungen',
+          items: [
+            {
+              title: 'PRP Behandlung',
+              description: 'Platelet Rich Plasma (PRP) Behandlung stärkt Haarwurzeln mit Thrombozyten aus eigenem Blut.',
+              benefits: [
+                'Stoppt Haarausfall',
+                'Verbessert Haarqualität',
+                'Natürliche Behandlungsmethode',
+                'Keine Nebenwirkungen',
+                'Erhöht Haardichte'
+              ],
+              process: 'Blut wird entnommen, zentrifugiert und gewonnenes PRP in die Kopfhaut injiziert.',
+              duration: '30-45 Minuten',
+              recovery: 'Sofortige Rückkehr zum normalen Leben'
+            },
+            {
+              title: 'Mesotherapie',
+              description: 'Behandlungsmethode, bei der Vitamine, Mineralien und Wachstumsfaktoren in die Kopfhaut injiziert werden.',
+              benefits: [
+                'Nährt Haarwurzeln',
+                'Erhöht Durchblutung',
+                'Beschleunigt Haarwachstum',
+                'Verbessert Haarqualität',
+                'Reduziert Haarausfall'
+              ],
+              process: 'Spezieller Vitamincocktail wird mit feinen Nadeln in die Kopfhaut injiziert.',
+              duration: '20-30 Minuten',
+              recovery: 'Sofortige Rückkehr zum normalen Leben'
+            },
+            {
+              title: 'Stammzellbehandlung',
+              description: 'Regeneration und Erneuerung der Haarfollikel mit aus Fettgewebe gewonnenen Stammzellen.',
+              benefits: [
+                'Follikelregeneration',
+                'Haarqualitätsverbesserung',
+                'Langanhaltende Wirkung',
+                'Natürliche Erneuerung',
+                'Anti-Aging-Effekt'
+              ],
+              process: 'Stammzellen werden aus Fettgewebe isoliert und auf die Kopfhaut aufgetragen.',
+              duration: '2-3 Stunden',
+              recovery: '1-2 Tage'
+            },
+            {
+              title: 'Exosom-Behandlung',
+              description: 'Aktivierung und Stärkung der Haarfollikel mit stammzellabgeleiteten Exosomen.',
+              benefits: [
+                'Schnelle Ergebnisse',
+                'Starke Regeneration',
+                'Minimal invasiv',
+                'Hohe Wirksamkeit',
+                'Sichere Anwendung'
+              ],
+              process: 'Exosom-Lösung wird mit Mikroinjektion auf die Kopfhaut aufgetragen.',
+              duration: '45-60 Minuten',
+              recovery: 'Sofortige Rückkehr zum normalen Leben'
+            }
+          ]
         }
       ]
     },
@@ -445,6 +879,11 @@ export const content: Record<string, ContentData> = {
     contact: {
       title: 'Haartransplantations-Beratung',
       subtitle: 'Kontaktieren Sie uns für eine kostenlose Beratung über DHI, FUE Haartransplantation, PRP und Stammzellbehandlungen.',
+      whatsapp: {
+        title: 'WhatsApp Kontakt',
+        subtitle: 'Erreichen Sie uns über WhatsApp für schnelle Unterstützung',
+        number: '+905551234567'
+      },
       form: {
         title: 'Kostenlose Beratungsformular',
         name: 'Vollständiger Name',
