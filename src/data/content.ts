@@ -330,7 +330,7 @@ export const content: Record<string, ContentData> = {
       whatsapp: {
         title: 'WhatsApp İletişim',
         subtitle: 'Hızlı destek için WhatsApp üzerinden ulaşın',
-        number: '+905551234567'
+        number: '+905331443271'
       },
       form: {
         title: 'Ücretsiz Konsültasyon Formu',
@@ -606,7 +606,7 @@ export const content: Record<string, ContentData> = {
       whatsapp: {
         title: 'WhatsApp Contact',
         subtitle: 'Reach us via WhatsApp for quick support',
-        number: '+905551234567'
+        number: '+905331443271'
       },
       form: {
         title: 'Free Consultation Form',
@@ -882,7 +882,7 @@ export const content: Record<string, ContentData> = {
       whatsapp: {
         title: 'WhatsApp Kontakt',
         subtitle: 'Erreichen Sie uns über WhatsApp für schnelle Unterstützung',
-        number: '+905551234567'
+        number: '+905331443271'
       },
       form: {
         title: 'Kostenlose Beratungsformular',

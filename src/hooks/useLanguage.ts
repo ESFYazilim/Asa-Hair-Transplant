@@ -25,6 +25,7 @@ export const useLanguage = () => {
     currentLanguage,
     changeLanguage,
     content: content[currentLanguage] as ContentData,
-    availableLanguages: Object.keys(content) as Language[]
+    availableLanguages: Object.keys(content) as Language[],
+    getCurrentLanguage: () => currentLanguage
   };
 };

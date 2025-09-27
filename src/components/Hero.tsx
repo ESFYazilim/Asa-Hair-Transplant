@@ -3,7 +3,7 @@ import { ChevronDown, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
 const Hero = () => {
-  const { content } = useLanguage();
+  const { content, currentLanguage } = useLanguage();
 
   const scrollToServices = () => {
     const element = document.querySelector('#services');
@@ -49,7 +49,14 @@ const Hero = () => {
             </button>
             <button
               onClick={() => {
-                const message = encodeURIComponent(`Merhaba! ${content.hero.title} hakkında bilgi almak istiyorum.`);
+                const messages = {
+                  tr: 'Merhaba! 👋 ASA Saç Ekim hakkında bilgi almak istiyorum. Saç ekimi, PRP tedavisi ve diğer hizmetleriniz hakkında detaylı bilgi alabilir miyim? 🌟',
+                  en: 'Hello! 👋 I would like to get information about ASA Hair Transplant. Can I get detailed information about hair transplant, PRP treatment and your other services? 🌟',
+                  de: 'Hallo! 👋 Ich möchte Informationen über ASA Haartransplantation erhalten. Kann ich detaillierte Informationen über Haartransplantation, PRP-Behandlung und Ihre anderen Dienstleistungen erhalten? 🌟'
+                };
+                
+                const currentLang = currentLanguage;
+                const message = encodeURIComponent(messages[currentLang] || messages.tr);
                 const whatsappUrl = `https://wa.me/${content.contact.whatsapp.number.replace(/[^0-9]/g, '')}?text=${message}`;
                 window.open(whatsappUrl, '_blank');
               }}

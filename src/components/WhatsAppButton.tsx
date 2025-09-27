@@ -3,10 +3,17 @@ import { MessageCircle } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
 const WhatsAppButton = () => {
-  const { content } = useLanguage();
+  const { content, currentLanguage } = useLanguage();
   
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(`Merhaba! ${content.contact.whatsapp.title} hakkında bilgi almak istiyorum.`);
+    const messages = {
+      tr: 'Merhaba! 👋 ASA Saç Ekim hakkında bilgi almak istiyorum. Saç ekimi, PRP tedavisi ve diğer hizmetleriniz hakkında detaylı bilgi alabilir miyim? 🌟',
+      en: 'Hello! 👋 I would like to get information about ASA Hair Transplant. Can I get detailed information about hair transplant, PRP treatment and your other services? 🌟',
+      de: 'Hallo! 👋 Ich möchte Informationen über ASA Haartransplantation erhalten. Kann ich detaillierte Informationen über Haartransplantation, PRP-Behandlung und Ihre anderen Dienstleistungen erhalten? 🌟'
+    };
+    
+    const currentLang = currentLanguage;
+    const message = encodeURIComponent(messages[currentLang] || messages.tr);
     const whatsappUrl = `https://wa.me/${content.contact.whatsapp.number.replace(/[^0-9]/g, '')}?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
