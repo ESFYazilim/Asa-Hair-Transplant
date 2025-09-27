@@ -28,31 +28,39 @@ exports.handler = async (event, context) => {
   try {
     const { to, subject, html } = JSON.parse(event.body);
 
-    // SMTP transporter configuration
-    // Bu kısımda gerçek SMTP ayarlarınızı kullanmanız gerekiyor
+    // Gmail SMTP transporter configuration
     const transporter = nodemailer.createTransporter({
-      host: 'smtp.gmail.com', // Veya kullandığınız SMTP servisi
+      service: 'gmail',
+      host: 'smtp.gmail.com',
       port: 587,
-      secure: false,
+      secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER, // Environment variable olarak ayarlanmalı
-        pass: process.env.SMTP_PASS  // Environment variable olarak ayarlanmalı
+        user: process.env.GMAIL_USER, // Gmail adresiniz
+        pass: process.env.GMAIL_APP_PASSWORD  // Gmail App Password
       }
     });
 
     const mailOptions = {
-      from: process.env.SMTP_USER,
+      from: `"ASA Saç Ekim" <${process.env.GMAIL_USER}>`,
       to: to,
       subject: subject,
-      html: html
+      html: html,
+      replyTo: process.env.GMAIL_USER
     };
 
-    await transporter.sendMail(mailOptions);
+    // Email gönderimi
+    const info = await transporter.sendMail(mailOptions);
+    
+    console.log('Email sent successfully:', info.messageId);
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ success: true, message: 'Email sent successfully' })
+      body: JSON.stringify({ 
+        success: true, 
+        message: 'Email sent successfully',
+        messageId: info.messageId
+      })
     };
 
   } catch (error) {

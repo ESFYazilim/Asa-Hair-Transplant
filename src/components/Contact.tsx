@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
-import { sendContactEmailSimple } from '../services/emailService';
+import { sendEmailViaBackend } from '../services/emailService';
 
 const Contact = () => {
   const { content } = useLanguage();
@@ -21,7 +21,7 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const success = await sendContactEmailSimple(formData);
+      const success = await sendEmailViaBackend(formData);
       
       if (success) {
         setSubmitStatus('success');
@@ -153,13 +153,25 @@ const Contact = () => {
               
               {submitStatus === 'success' && (
                 <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                  ✅ Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.
+                  <div className="flex items-center">
+                    <span className="text-2xl mr-3">✅</span>
+                    <div>
+                      <p className="font-semibold">Mesajınız başarıyla gönderildi!</p>
+                      <p className="text-sm">En kısa sürede size dönüş yapacağız. WhatsApp üzerinden de iletişime geçebilirsiniz.</p>
+                    </div>
+                  </div>
                 </div>
               )}
               
               {submitStatus === 'error' && (
                 <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                  ❌ Mesaj gönderilemedi. Lütfen tekrar deneyin veya WhatsApp üzerinden iletişime geçin.
+                  <div className="flex items-center">
+                    <span className="text-2xl mr-3">❌</span>
+                    <div>
+                      <p className="font-semibold">Mesaj gönderilemedi!</p>
+                      <p className="text-sm">Lütfen tekrar deneyin veya WhatsApp üzerinden iletişime geçin.</p>
+                    </div>
+                  </div>
                 </div>
               )}
             </form>
