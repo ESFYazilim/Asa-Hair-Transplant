@@ -8,10 +8,10 @@ const Services = () => {
   const serviceIcons = [Scissors, Zap, Droplets, Sparkles];
   
   const serviceImages = [
-    'https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/4173626/pexels-photo-4173626.jpeg?auto=compress&cs=tinysrgb&w=600',
-    'https://images.pexels.com/photos/4173530/pexels-photo-4173530.jpeg?auto=compress&cs=tinysrgb&w=600'
+    'https://images.pexels.com/photos/5069432/pexels-photo-5069432.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4386476/pexels-photo-4386476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=600'
   ];
 
   const services = content.services.items.map((service, index) => ({

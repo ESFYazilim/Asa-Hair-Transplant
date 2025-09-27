@@ -21,9 +21,23 @@ export const useLanguage = () => {
     const selectedContent = content[lang];
     document.title = selectedContent.meta.title;
     
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+    
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', selectedContent.meta.description);
+    }
+    
+    // Update Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', selectedContent.meta.title);
+    }
+    
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', selectedContent.meta.description);
     }
   };
 

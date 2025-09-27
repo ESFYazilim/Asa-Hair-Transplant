@@ -17,8 +17,8 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.pexels.com/photos/4173624/pexels-photo-4173624.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Professional medical environment"
+          src="https://images.pexels.com/photos/5069432/pexels-photo-5069432.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Modern hair transplant clinic"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/80 via-emerald-800/60 to-transparent"></div>
