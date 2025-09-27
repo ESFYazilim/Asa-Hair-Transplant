@@ -17,39 +17,8 @@ export const useLanguage = () => {
     setCurrentLanguage(lang);
     localStorage.setItem('language', lang);
     
-    // Update document title and meta description immediately
-    const selectedContent = content[lang];
-    document.title = selectedContent.meta.title;
-    
-    // Update HTML lang attribute
-    document.documentElement.lang = lang;
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', selectedContent.meta.description);
-    }
-    
-    // Update Open Graph meta tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) {
-      ogTitle.setAttribute('content', selectedContent.meta.title);
-    }
-    
-    const ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) {
-      ogDescription.setAttribute('content', selectedContent.meta.description);
-    }
-
-    // Update Twitter Card meta tags
-    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twitterTitle) {
-      twitterTitle.setAttribute('content', selectedContent.meta.title);
-    }
-    
-    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-    if (twitterDescription) {
-      twitterDescription.setAttribute('content', selectedContent.meta.description);
-    }
+    // Reload the page to apply language changes
+    window.location.reload();
   };
 
   return {
