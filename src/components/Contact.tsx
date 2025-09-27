@@ -13,8 +13,18 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`${content.contact.form.title} - ${formData.name}`);
+    const body = encodeURIComponent(
+      `${content.contact.form.name}: ${formData.name}\n` +
+      `${content.contact.form.email}: ${formData.email}\n` +
+      `${content.contact.form.phone}: ${formData.phone}\n\n` +
+      `${content.contact.form.message}:\n${formData.message}`
+    );
+    
+    const mailtoLink = `mailto:info@asahairtransplant.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
