@@ -33,7 +33,7 @@ const About = () => {
           <div className="relative">
             <div className="relative z-10">
               <img
-                src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
                 alt="Professional hair transplant consultation"
                 className="w-full h-96 object-cover rounded-lg shadow-2xl"
               />

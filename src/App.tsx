@@ -11,12 +11,25 @@ import Contact from './components/Contact';
 function App() {
   const { content } = useLanguage();
   
-  // Update document title when language changes
+  // Update document title and meta tags when language changes
   React.useEffect(() => {
     document.title = content.meta.title;
+    document.documentElement.lang = content === content ? 'tr' : content === content ? 'en' : 'de';
+    
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', content.meta.description);
+    }
+    
+    // Update Open Graph meta tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', content.meta.title);
+    }
+    
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', content.meta.description);
     }
   }, [content]);
 

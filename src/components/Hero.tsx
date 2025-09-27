@@ -17,7 +17,7 @@ const Hero = () => {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.pexels.com/photos/5069432/pexels-photo-5069432.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080"
           alt="Modern hair transplant clinic"
           className="w-full h-full object-cover"
         />

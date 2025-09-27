@@ -35,12 +35,14 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+      isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-black/20 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-emerald-600 tracking-tight">
+            <div className={`text-2xl font-bold tracking-tight transition-colors duration-300 ${
+              isScrolled ? 'text-emerald-600' : 'text-white'
+            }`}>
               ASA SAÇ EKİM
             </div>
           </div>
@@ -52,7 +54,11 @@ const Navigation = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200"
+                  className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
+                    isScrolled 
+                      ? 'text-gray-700 hover:text-emerald-600' 
+                      : 'text-white/90 hover:text-emerald-300'
+                  }`}
                 >
                   {link.label}
                 </button>
@@ -67,7 +73,11 @@ const Navigation = () => {
               <LanguageSelector />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-emerald-600 p-2"
+                className={`p-2 transition-colors duration-200 ${
+                  isScrolled 
+                    ? 'text-gray-700 hover:text-emerald-600' 
+                    : 'text-white hover:text-emerald-300'
+                }`}
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>

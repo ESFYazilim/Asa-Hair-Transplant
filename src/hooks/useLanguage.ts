@@ -17,7 +17,7 @@ export const useLanguage = () => {
     setCurrentLanguage(lang);
     localStorage.setItem('language', lang);
     
-    // Update document title and meta description
+    // Update document title and meta description immediately
     const selectedContent = content[lang];
     document.title = selectedContent.meta.title;
     
@@ -38,6 +38,17 @@ export const useLanguage = () => {
     const ogDescription = document.querySelector('meta[property="og:description"]');
     if (ogDescription) {
       ogDescription.setAttribute('content', selectedContent.meta.description);
+    }
+
+    // Update Twitter Card meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', selectedContent.meta.title);
+    }
+    
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', selectedContent.meta.description);
     }
   };
 
