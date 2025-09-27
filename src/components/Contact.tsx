@@ -62,8 +62,8 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light mb-4 tracking-tight">
-            <span className="font-bold text-emerald-400">{content.contact.title}</span>
+          <h2 className="text-3xl md:text-4xl font-light mb-4 tracking-tight font-commuters">
+            <span className="font-bold text-emerald-400 font-commuters">{content.contact.title}</span>
           </h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {content.contact.subtitle}

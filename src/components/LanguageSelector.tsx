@@ -15,7 +15,7 @@ const LanguageSelector = () => {
 
   const languageFlags = {
     tr: '🇹🇷',
-    en: '🇬🇧',
+    en: '🇺🇸',
     de: '🇩🇪'
   };
 

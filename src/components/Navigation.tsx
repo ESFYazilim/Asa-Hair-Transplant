@@ -17,7 +17,6 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#home', label: content.navigation.home },
     { href: '#services', label: content.navigation.services },
     { href: '#about', label: content.navigation.about },
     { href: '#achievements', label: content.navigation.achievements },
@@ -40,13 +39,16 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <div className="flex items-center space-x-3">
+            <button
+              onClick={() => scrollToSection('#home')}
+              className="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-200"
+            >
               <img 
                 src="/Asa Hair Transplant-renkli.png" 
                 alt="ASA Hair Transplant Logo" 
                 className="h-14 w-auto"
               />
-            </div>
+            </button>
           </div>
 
           {/* Masaüstü Navigasyon */}

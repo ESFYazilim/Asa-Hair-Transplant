@@ -27,9 +27,9 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight leading-tight">
+          <h1 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight leading-tight font-commuters">
             {content.hero.title}
-            <span className="block font-bold text-emerald-300">{content.hero.subtitle}</span>
+            <span className="block font-bold text-emerald-300 font-commuters">{content.hero.subtitle}</span>
           </h1>
           <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
             {content.hero.description}
