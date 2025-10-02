@@ -1,0 +1,27 @@
+==========================================
+  HOSTİNGER YÜKLEME ADIMLARI - 3 DAKİKA
+==========================================
+
+1. Hostinger'a giriş yap
+2. File Manager'ı aç
+3. public_html/ klasörüne gir
+4. İçindeki BÜTÜN eski dosyaları sil
+5. Aşağıdaki dosyaları sırayla yükle:
+
+YÜKLENECEK DOSYALAR:
+=====================
+dist/index.html                         → public_html/index.html
+dist/.htaccess                          → public_html/.htaccess
+dist/_redirects                         → public_html/_redirects
+dist/Asa Hair Transplant-renkli.png    → public_html/Asa Hair Transplant-renkli.png
+dist/api/send-email.php                 → public_html/api/send-email.php
+dist/assets/index-CC6SjOId.css         → public_html/assets/index-CC6SjOId.css
+dist/assets/index-DsfMJQm2.js          → public_html/assets/index-DsfMJQm2.js
+
+6. Dosya izinlerini ayarla:
+   - api/send-email.php → 755
+   - .htaccess → 644
+
+7. Siteyi aç: https://yourdomain.com
+
+BİTTİ! ✅
