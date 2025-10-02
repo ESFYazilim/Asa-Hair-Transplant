@@ -47,51 +47,37 @@ export const sendContactEmail = async (formData: ContactFormData): Promise<boole
 // Basit fetch ile backend email gönderimi (alternatif)
 export const sendEmailViaBackend = async (formData: ContactFormData): Promise<boolean> => {
   try {
-    const response = await fetch('/.netlify/functions/send-email', {
+    // Hostinger için PHP backend endpoint'i
+    const response = await fetch('/api/send-email.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        to: 'info@asahairtransplant.com',
-        subject: `Saç Ekimi Konsültasyon Talebi - ${formData.name}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #059669; border-bottom: 2px solid #059669; padding-bottom: 10px;">
-              🌟 Yeni Konsültasyon Talebi
-            </h2>
-            
-            <div style="background-color: #f0fdf4; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3 style="color: #065f46; margin-top: 0;">👤 Hasta Bilgileri</h3>
-              <p><strong>📝 Ad Soyad:</strong> ${formData.name}</p>
-              <p><strong>📧 Email:</strong> ${formData.email}</p>
-              <p><strong>📱 Telefon:</strong> ${formData.phone || 'Belirtilmemiş'}</p>
-            </div>
-            
-            <div style="background-color: #ecfdf5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-              <h3 style="color: #065f46; margin-top: 0;">💬 Mesaj</h3>
-              <p style="line-height: 1.6; color: #374151;">${formData.message}</p>
-            </div>
-            
-            <div style="background-color: #f9fafb; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;">
-              <p style="margin: 0; color: #6b7280; font-size: 14px;">
-                📅 Gönderim Tarihi: ${new Date().toLocaleString('tr-TR')}
-              </p>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
-              <p style="color: #6b7280; font-size: 12px;">
-                Bu mesaj ASA Saç Ekim web sitesi iletişim formundan gönderilmiştir.
-              </p>
-            </div>
-          </div>
-        `
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message
       })
     });
 
     return response.ok;
   } catch (error) {
     console.error('Backend email gönderimi hatası:', error);
-    return false;
+    // Hostinger'da email gönderimi başarısız olursa, mailto ile fallback
+    const subject = encodeURIComponent(`Saç Ekimi Konsültasyon Talebi - ${formData.name}`);
+    const body = encodeURIComponent(`
+Ad Soyad: ${formData.name}
+Email: ${formData.email}
+Telefon: ${formData.phone || 'Belirtilmemiş'}
+
+Mesaj:
+${formData.message}
+
+Gönderim Tarihi: ${new Date().toLocaleString('tr-TR')}
+    `);
+    
+    window.location.href = `mailto:info@asahairtransplant.com?subject=${subject}&body=${body}`;
+    return true;
   }
 };
