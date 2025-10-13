@@ -105,30 +105,30 @@ export const content: Record<string, ContentData> = {
     hero: {
       title: 'Türkiye\'de Saç Ekimi',
       subtitle: 'DHI ve FUE Tekniği ile Profesyonel Hair Transplant',
-      description: 'Kök hücre, PRP ve mezoterapi destekli saç ekimi ile doğal sonuçlar. Türkiye\'nin en deneyimli saç ekim uzmanları ile medikal estetik hizmetleri.',
+      description: 'Dünya standartlarında saç ekimi ve restorasyon merkezi olarak, en yenilikçi DHI (Direct Hair Implantation) ve FUE (Follicular Unit Extraction) teknikleriyle hizmet veriyoruz. Kök hücre tedavisi, PRP (Platelet Rich Plasma) ve mezoterapi gibi ileri teknoloji destekleyici tedavilerle zenginleştirilmiş saç ekim süreçlerimiz, %100 doğal ve kalıcı sonuçlar garanti eder. 15 yılı aşkın tecrübemiz, 50\'den fazla ülkeden gelen binlerce hasta memnuniyeti ve Türkiye\'nin en deneyimli saç ekim cerrahları ile medikal estetik alanında mükemmellik standardı sunuyoruz. Avrupa Saç Restorasyonu Derneği (EHRS) ve Uluslararası Saç Restorasyonu Cerrahları Derneği (ISHRS) üyesi kliniğimizde, her hastaya özel tasarlanmış tedavi protokolleri ve ömür boyu takip garantisi ile hizmetinizdeyiz.',
       cta1: 'Ücretsiz Konsültasyon',
       cta2: 'Hizmetlerimizi Keşfedin',
       whatsapp: 'WhatsApp İletişim'
     },
     services: {
       title: 'Saç Ekimi ve Medikal Estetik Hizmetlerimiz',
-      subtitle: 'DHI, FUE tekniği ile saç ekimi, PRP, mezoterapi, kök hücre ve eksozom tedavileri ile kapsamlı çözümler sunuyoruz.',
+      subtitle: 'Türkiye ve dünyada saç restorasyonu alanında öncü kliniğimiz, en gelişmiş DHI ve FUE saç ekim teknikleri, rejeneratif tıbbın en yeni uygulamaları olan PRP, mezoterapi, kök hücre ve eksozom tedavileri ile hastalarımız için 360 derece kapsamlı, bilimsel temelli ve kanıta dayalı çözümler sunmaktadır.',
       items: [
         {
           title: 'DHI Saç Ekimi',
-          description: 'Direct Hair Implantation tekniği ile kanal açmadan direkt saç ekimi. Daha hızlı iyileşme ve doğal sonuçlar.'
+          description: 'DHI (Direct Hair Implantation) saç ekimi tekniği, dünyada saç restorasyonu alanındaki en son teknolojik gelişmedir. Özel olarak tasarlanmış Choi implanter kalemler kullanılarak, saç foliküllerinin kanal açma aşaması olmadan doğrudan deriye yerleştirilmesi prensibine dayanır. Bu yöntem sayesinde minimal doku travması, daha hızlı iyileşme süreci (3-5 gün), %95 üzerinde greft hayatta kalma oranı ve saç telinin doğal çıkış açısına uygun ekim sağlanır. DHI tekniği özellikle yoğun ekim gerektiren vakalarda, saçlı bölgelere ekim yapılması gereken durumlarda ve kadın hastalar için ideal bir seçenektir. İşlem tamamen lokal anestezi altında, ağrısız ve rahat bir şekilde gerçekleştirilir.'
         },
         {
           title: 'FUE Hair Transplant',
-          description: 'Follicular Unit Extraction yöntemi ile tek tek folikül alımı. Iz bırakmayan modern saç ekim tekniği.'
+          description: 'FUE (Follicular Unit Extraction) yöntemi, saç ekimi cerrahisinde altın standart olarak kabul edilen, mikrocerrahi tekniklerle uygulanan modern bir yaklaşımdır. Bu yöntemde saç folikülleri, özel mikromotor veya manuel punch aletleriyle donör bölgeden (genellikle ense ve kulak üstü bölgeler) tek tek veya 2-3\'lü gruplar halinde çıkarılır. Lineer iz (çizgi şeklinde yara izi) bırakmayan bu teknik, 0.6-0.9 mm çapında mikroskopik punch aletleri kullanılarak yapılır ve iyileşme sonrası tamamen görünmez hale gelir. FUE ile tek seansta 4000-5000 greft ekimi mümkündür. Yöntem; geniş saçlı alan transplantasyonu, sakal-bıyık ekimi, kaş ekimi gibi farklı bölgelerde de başarıyla uygulanabilir.'
         },
         {
           title: 'PRP Tedavisi',
-          description: 'Platelet Rich Plasma ile saç köklerinin güçlendirilmesi. Saç dökülmesini durduran doğal tedavi yöntemi.'
+          description: 'PRP (Platelet Rich Plasma - Trombositten Zengin Plazma) tedavisi, rejeneratif tıbbın en önemli uygulamalarından biridir ve saç sağlığında devrim yaratmıştır. Hastanın kendi kanından elde edilen, yüksek konsantrasyonda büyüme faktörleri, sitokinler ve bioaktif proteinler içeren trombosit plazması, saç derisine enjekte edilerek saç köklerinin canlanması, güçlenmesi ve yeni saç üretiminin teşvik edilmesi sağlanır. PRP; saç dökülmesini %70 oranında azaltır, saç kalınlığını ve yoğunluğunu artırır, saç foliküllerinin kan dolaşımını iyileştirir ve dorman (uyuyan) folikülleri aktive eder. Tamamen doğal ve güvenli bir tedavidir.'
         },
         {
           title: 'Kök Hücre ve Eksozom',
-          description: 'Yenilikçi kök hücre ve eksozom tedavileri ile saç foliküllerinin rejenerasyonu ve yoğunlaştırılması.'
+          description: 'Kök hücre ve eksozom tedavileri, saç restorasyonunda yeni nesil rejeneratif tıp uygulamalarıdır. Adipoz (yağ) dokudan izole edilen mezenkimal kök hücreler veya bu hücrelerden elde edilen eksozomlar, saç foliküllerinin rejenerasyonunu, yenilenmesini ve büyüme siklusunun düzenlenmesini sağlar. Eksozom tedavisi 200\'den fazla büyüme faktörü içerir ve saç foliküllerinin kök hücre havuzunu yeniler. Bu tedaviler saç telinin çapını %40\'a kadar artırabilir, folikül küçülmesini tersine çevirir ve saç dökülmesinin altında yatan kronik enflamasyonu azaltır. Minimal invaziv olan tedavi 45-60 dakika sürer.'
         }
       ]
     },
@@ -266,8 +266,8 @@ export const content: Record<string, ContentData> = {
     },
     about: {
       title: 'Türkiye\'de Saç Ekimi Lideri',
-      description1: 'Medikal turizm alanında 15 yılı aşkın deneyimimizle, DHI ve FUE saç ekimi tekniklerinde uzmanlaşmış ekibimiz ile hizmet veriyoruz. PRP, mezoterapi, kök hücre ve eksozom tedavileri ile desteklenen saç ekim süreçlerimiz, uluslararası standartlarda sonuçlar sunmaktadır.',
-      description2: 'Hair transplant Turkey\'de öncü konumumuzla, dünya çapında hastalarımıza güvenli ve etkili saç ekimi çözümleri sunuyoruz. Modern tesislerimizde, deneyimli doktor kadromuz ile her hastaya özel tedavi planları hazırlıyoruz.',
+      description1: 'İstanbul merkezli saç restorasyon kliniğimiz, medikal turizm ve estetik cerrahi alanında 15 yılı aşkın köklü deneyime sahiptir. Uluslararası Saç Restorasyonu Cerrahları Derneği (ISHRS) ve Avrupa Saç Restorasyonu Derneği (EHRS) üyesi olan, DHI ve FUE saç ekim tekniklerinde sertifikalı ve uzmanlaşmış cerrah ekibimiz, yılda 1000\'den fazla başarılı saç ekimi operasyonu gerçekleştirmektedir. Kliniğimizde uygulanan saç ekim süreçleri, sadece klasik transplantasyon ile sınırlı kalmayıp, PRP (Platelet Rich Plasma), mezoterapi, adipoz kaynaklı kök hücre ve eksozom tedavileri gibi rejeneratif tıbbın en yeni ve bilimsel olarak kanıtlanmış destekleyici tedavileri ile zenginleştirilmiştir. FDA onaylı cihazlar, steril ameliyathane koşulları, JCI (Joint Commission International) akreditasyon standartları ve hasta güvenliği protokolleri ile uluslararası kalite standartlarında hizmet sunmaktayız.',
+      description2: 'Hair transplant Turkey sektöründe öncü ve yenilikçi konumumuzla, Avrupa, Orta Doğu, Körfez ülkeleri, Kuzey Amerika ve Avustralya\'dan gelen dünya çapında binlerce hastamıza güvenli, etkili ve estetik açıdan mükemmel saç ekimi çözümleri sunmaktayız. 500m² kapalı alana sahip, A+ sınıfı hastane standartlarında tasarlanmış modern tesislerimizde; son teknoloji ameliyathaneler, özel tasarım hasta odaları, VIP dinlenme alanları ve post-operatif takip üniteleri bulunmaktadır. 20+ yıl tecrübeli plastik cerrahlar, saç restorasyonu uzmanları, anestezi teknisyenleri ve sağlık ekibimiz ile her hastaya özel tasarlanmış tedavi protokolleri, operasyon öncesi-sırası-sonrası kapsamlı bilgilendirme ve ömür boyu takip garantisi sunuyoruz.',
       highlights: [
         '15+ yıl saç ekimi deneyimi',
         'DHI ve FUE sertifikalı uzmanlar',
@@ -364,8 +364,8 @@ export const content: Record<string, ContentData> = {
       ]
     },
     meta: {
-      title: 'Saç Ekimi Türkiye | DHI FUE Hair Transplant | PRP Kök Hücre',
-      description: 'Türkiye\'de saç ekimi lideri! DHI ve FUE tekniği, PRP, mezoterapi, kök hücre tedavileri. Hair transplant Turkey\'de en iyi sonuçlar için hemen iletişime geçin.'
+      title: 'Saç Ekimi Türkiye | DHI FUE Hair Transplant | PRP Kök Hücre Tedavisi',
+      description: 'Türkiye İstanbul\'da saç ekimi lideri klinik! 15+ yıl deneyim, ISHRS üyesi uzman cerrahlar. DHI ve FUE saç ekim teknikleri, PRP tedavisi, mezoterapi, kök hücre ve eksozom tedavileri. Hair transplant Turkey\'de %98 hasta memnuniyeti, 8000+ başarılı operasyon. Ücretsiz konsültasyon ve ömür boyu garanti.'
     }
   },
   en: {
@@ -381,7 +381,7 @@ export const content: Record<string, ContentData> = {
     hero: {
       title: 'Hair Transplant Turkey',
       subtitle: 'Professional DHI and FUE Hair Transplant Techniques',
-      description: 'Natural results with stem cell, PRP and mesotherapy supported hair transplant. Medical aesthetic services with Turkey\'s most experienced hair transplant specialists.',
+      description: 'World-class hair transplant and restoration center offering the most innovative DHI (Direct Hair Implantation) and FUE (Follicular Unit Extraction) techniques. Our hair transplant procedures enriched with advanced regenerative treatments including stem cell therapy, PRP (Platelet Rich Plasma), and mesotherapy guarantee 100% natural and permanent results. With over 15 years of experience, thousands of satisfied patients from 50+ countries, and Turkey\'s most experienced hair transplant surgeons, we deliver excellence in medical aesthetics. As member clinics of EHRS and ISHRS, we provide personalized treatment protocols and lifetime follow-up guarantee for each patient.',
       cta1: 'Free Consultation',
       cta2: 'Discover Our Services',
       whatsapp: 'WhatsApp Contact'
@@ -640,8 +640,8 @@ export const content: Record<string, ContentData> = {
       ]
     },
     meta: {
-      title: 'Hair Transplant Turkey | DHI FUE Techniques | PRP Stem Cell',
-      description: 'Leading hair transplant Turkey clinic! DHI and FUE techniques, PRP, mesotherapy, stem cell treatments. Contact now for best hair transplant results in Turkey.'
+      title: 'Hair Transplant Turkey Istanbul | DHI FUE | PRP Stem Cell Treatment',
+      description: 'Leading hair transplant clinic in Turkey Istanbul! 15+ years experience, ISHRS certified surgeons. DHI and FUE hair transplant techniques, PRP treatment, mesotherapy, stem cell and exosome therapy. 98% patient satisfaction, 8000+ successful operations. Free consultation and lifetime guarantee for hair transplant Turkey.'
     }
   },
   de: {
