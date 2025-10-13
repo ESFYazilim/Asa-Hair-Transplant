@@ -7,3 +7,18 @@
 .font-commuters {
   font-family: 'Commuters Sans', sans-serif;
 }
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure containers don't overflow */
+* {
+  max-width: 100%;
+}

@@ -36,7 +36,7 @@ function App() {
   }, [content]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden w-full">
       <Navigation />
       <Hero />
       <Services />

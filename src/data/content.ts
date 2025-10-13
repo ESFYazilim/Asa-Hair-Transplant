@@ -105,7 +105,7 @@ export const content: Record<string, ContentData> = {
     hero: {
       title: 'Türkiye\'de Saç Ekimi',
       subtitle: 'DHI ve FUE Tekniği ile Profesyonel Hair Transplant',
-      description: 'Dünya standartlarında saç ekimi ve restorasyon merkezi olarak, en yenilikçi DHI (Direct Hair Implantation) ve FUE (Follicular Unit Extraction) teknikleriyle hizmet veriyoruz. Kök hücre tedavisi, PRP (Platelet Rich Plasma) ve mezoterapi gibi ileri teknoloji destekleyici tedavilerle zenginleştirilmiş saç ekim süreçlerimiz, %100 doğal ve kalıcı sonuçlar garanti eder. 15 yılı aşkın tecrübemiz, 50\'den fazla ülkeden gelen binlerce hasta memnuniyeti ve Türkiye\'nin en deneyimli saç ekim cerrahları ile medikal estetik alanında mükemmellik standardı sunuyoruz. Avrupa Saç Restorasyonu Derneği (EHRS) ve Uluslararası Saç Restorasyonu Cerrahları Derneği (ISHRS) üyesi kliniğimizde, her hastaya özel tasarlanmış tedavi protokolleri ve ömür boyu takip garantisi ile hizmetinizdeyiz.',
+      description: '15+ yıl deneyim, 8000+ başarılı operasyon, %98 hasta memnuniyeti. DHI ve FUE saç ekimi, PRP, kök hücre tedavileri ile doğal sonuçlar. ISHRS üyesi uzman cerrahlarımız ve modern tesisimizle hizmetinizdeyiz.',
       cta1: 'Ücretsiz Konsültasyon',
       cta2: 'Hizmetlerimizi Keşfedin',
       whatsapp: 'WhatsApp İletişim'
@@ -141,31 +141,37 @@ export const content: Record<string, ContentData> = {
           items: [
             {
               title: 'DHI Saç Ekimi',
-              description: 'Direct Hair Implantation (DHI) tekniği, saç foliküllerinin özel kalemler kullanılarak direkt olarak ekildiği en gelişmiş yöntemdir.',
+              description: 'DHI (Direct Hair Implantation) saç ekimi tekniği, dünyada saç restorasyonu alanındaki en ileri ve teknolojik yöntemdir. Bu özel teknikte, 0.6-1.0 mm çapında Choi implanter adı verilen özel tasarım kalemler kullanılarak saç folikülleri doğrudan deriye yerleştirilir. Geleneksel yöntemlerin aksine DHI\'da kanal açma ve ekim işlemleri aynı anda gerçekleşir, bu sayede greftlerin dışarıda bekleme süresi minimize edilir ve hayatta kalma oranı %95\'in üzerine çıkar. Tekniğin en büyük avantajı, saç tellerinin doğal çıkış açısını (35-45 derece) mükemmel şekilde taklit edebilmesidir. DHI özellikle kadın hastalarda, ön saç çizgisi tasarımında, yoğun ekim gerektiren vakalarda ve mevcut saçlar arasına ekim yapılması gereken durumlarda tercih edilir. Choi implanter kalemler 15-16 gauge kalınlığında olup, çeşitli çap seçenekleriyle farklı saç kalınlıklarına uygun ekim imkanı sunar. İşlem tamamen lokal anestezi altında ağrısız bir şekilde gerçekleştirilir ve hastalar aynı gün taburcu edilir.',
               benefits: [
-                'Kanal açma işlemi gerektirmez',
-                'Daha hızlı iyileşme süreci',
-                'Minimum travma ve kanama',
-                'Doğal saç çıkış açısı',
-                'Yoğun ekim imkanı'
+                'Kanal açma aşaması olmadan tek adımda ekim - doku travması minimal',
+                'Greftlerin dışarıda bekleme süresi neredeyse sıfır - %95+ hayatta kalma',
+                'Her folikülün derinlik, açı ve yönü tam kontrol altında',
+                'Mevcut saçlar arasına ekim mümkün - kadınlar için ideal',
+                'Daha hızlı iyileşme (3-5 gün) ve erken dönem sonuçları',
+                'Kanama ve enfeksiyon riski minimum seviyede',
+                'Yoğun ekim imkanı - cm² başına 50-60 greft mümkün',
+                'Operasyon sonrası kabuk oluşumu minimal'
               ],
-              process: 'Foliküller tek tek alınır ve özel DHI kalemi ile direkt ekilir. İşlem lokal anestezi altında yapılır.',
-              duration: '6-8 saat',
-              recovery: '3-5 gün'
+              process: 'DHI saç ekimi üç ana aşamadan oluşur: (1) Planlama ve Tasarım: Saç çizgisi tasarımı, folikül sayısı belirleme ve donör alan değerlendirmesi yapılır. (2) Folikül Toplama: Donör bölgeden (ense ve yan bölgeler) 0.6-0.9mm punch ile tek tek foliküller mikromotor yardımıyla çıkarılır, her folikül özel saklama solüsyonunda bekletilir. (3) DHI ile Ekim: Choi implanter kalemlere foliküller yüklenir, 40-45 derece açıyla deriye yerleştirilir. Tek seansta 3000-5000 greft ekim yapılabilir. Tüm işlem boyunca hasta uyanık, ağrısız ve rahat bir pozisyonda olur.',
+              duration: '6-8 saat (greft sayısına göre değişir)',
+              recovery: '3-5 gün tam iyileşme, 7-10 gün kabuk dökülmesi, 3 ay yeni saç çıkışı başlar'
             },
             {
               title: 'FUE Saç Ekimi',
-              description: 'Follicular Unit Extraction (FUE) yöntemi ile saç folikülleri tek tek alınarak hedef bölgeye nakledilir.',
+              description: 'FUE (Follicular Unit Extraction) saç ekimi, dünyada en yaygın kullanılan ve altın standart olarak kabul edilen mikrocerrahi saç ekim yöntemidir. Bu teknikte saç folikülleri, donör bölgeden (tipik olarak ense ve kulak üstü bölgeler) özel tasarlanmış 0.6-0.9 mm çapında punch aletleriyle tek tek veya 2-3\'lü foliküler unit gruplar halinde çıkarılır. FUT (strip) yönteminin aksine, FUE\'de lineer (çizgi şeklinde) bir kesi yapılmaz, bu nedenle görünür bir yara izi oluşmaz. Her bir folikül, mikroskop altında titizlikle hazırlanır ve özel saklama solüsyonlarında (Hypothermosol, saline) bekletilerek canlılığı korunur. Daha sonra hedef bölgede (saçsız alan, seyrek alan) önceden açılmış kanallara hassas bir şekilde yerleştirilir. FUE yöntemi; erkek tipi kellik, kadınlarda diffüz incelme, yanık-travma sonrası saç kaybı, sakal-bıyık-kaş ekimi gibi geniş bir uygulama yelpazesine sahiptir. Manuel FUE (elle punch ile) veya motorize FUE (mikromotor ile) olmak üzere iki farklı uygulama şekli vardır. Kliniğimizde her iki yöntem de mevcuttur ve hasta özelliklerine göre seçim yapılır.',
               benefits: [
-                'İz bırakmayan teknik',
-                'Hızlı iyileşme',
-                'Doğal görünüm',
-                'Geniş alan ekimi',
-                'Minimal ağrı'
+                'Lineer iz (çizgi) oluşmaz - tamamen görünmez iyileşme',
+                'Kısa saç kesimiyle rahatça taranabilir',
+                'Donör alan daha hızlı iyileşir (7-10 gün)',
+                'Vücut kılları da kullanılabilir (BHT - Body Hair Transplant)',
+                'Geniş alanlarda ekim mümkün - tek seansta 4000-5000 greft',
+                'Travma ve enfeksiyon riski çok düşük',
+                'Sakal, bıyık, kaş ekimi için de uygulanabilir',
+                'Operasyon sonrası minimal ağrı ve rahatsızlık'
               ],
-              process: 'Foliküller mikromotor ile alınır, kanallar açılır ve foliküller yerleştirilir.',
-              duration: '4-6 saat',
-              recovery: '7-10 gün'
+              process: 'FUE saç ekimi dört temel aşamadan oluşur: (1) Hazırlık ve Planlama: Hasta değerlendirmesi, saç çizgisi tasarımı, donör alan tıraşı ve lokal anestezi uygulaması. (2) Greft Toplama (Extraction): 0.6-0.9mm punch ile foliküller tek tek çıkarılır, mikroskop altında temizlenir ve sınıflandırılır (1-2-3-4\'lü greftler). (3) Kanal Açma (Channel Opening): Hedef bölgede özel mikro blade veya iğneler ile 40-45 derece açıyla insizyonlar açılır, kanal derinliği ve yoğunluğu planlanır. (4) Greft Yerleştirme (Implantation): Hazırlanan greftler özel mikro forsepslerle kanallara yerleştirilir, doğal saç çıkış yönü ve açısına dikkat edilir. İşlem 4-8 saat sürer.',
+              duration: '4-8 saat (greft sayısı ve alan büyüklüğüne göre)',
+              recovery: '7-10 gün donör alan iyileşmesi, 10-14 gün tam iyileşme, 2-3 ay şok dökülme, 6-12 ay nihai sonuçlar'
             }
           ]
         },
@@ -206,17 +212,20 @@ export const content: Record<string, ContentData> = {
           items: [
             {
               title: 'PRP Tedavisi',
-              description: 'Platelet Rich Plasma (PRP) tedavisi, kişinin kendi kanından elde edilen trombositlerle saç köklerinin güçlendirilmesidir.',
+              description: 'PRP (Platelet Rich Plasma - Trombositten Zengin Plazma) tedavisi, rejeneratif tıbbın en güçlü ve etkili uygulamalarından biridir. Bu tedavide hastanın kendi venöz kanından (8-16 ml) çift santrifüj işlemi ile elde edilen, normal kandan 3-5 kat daha yüksek konsantrasyonda trombosit içeren plazma kullanılır. Trombositler; PDGF (Platelet Derived Growth Factor), TGF-β, VEGF, EGF, FGF, IGF gibi 30\'dan fazla büyüme faktörü ve sitokin salgılar. Bu moleküller saç foliküllerinde; hücre proliferasyonunu artırır, kan damarı oluşumunu teşvik eder, stem cell aktivasyonu sağlar, kollajen sentezini hızlandırır ve anti-inflamatuar etki gösterir. PRP saç dökülmesini %60-70 oranında azaltır, saç telinin çapını %23-40 artırır, terminal kıl/vellus kıl oranını iyileştirir ve anagen (büyüme) fazını uzatır. Androgenetik alopesi (erkek tipi kellik), telogen effluvium, alopecia areata, diffüz saç incelmesi gibi birçok saç kaybı türünde etkilidir. Saç ekimi öncesi, sırası ve sonrasında uygulandığında greft başarısını %25-30 artırır. Tamamen otoloğ (kişinin kendi dokusu) olduğu için alerjik reaksiyon, enfeksiyon veya yan etki riski neredeyse sıfırdır.',
               benefits: [
-                'Saç dökülmesini durdurur',
-                'Saç kalitesini artırır',
-                'Doğal tedavi yöntemi',
-                'Yan etkisi yoktur',
-                'Saç yoğunluğunu artırır'
+                'Saç dökülmesini %60-70 oranında azaltır - klinik olarak kanıtlanmış',
+                'Saç telinin kalınlığını ve yoğunluğunu artırır (%23-40 artış)',
+                '30+ büyüme faktörü ile doğal saç rejenerasyonu',
+                'Dorman (uyuyan) folikülleri aktive eder ve anagen fazını uzatır',
+                'Saç ekimi başarısını %25-30 artırır',
+                '100% doğal ve otoloğ - yan etki riski yok',
+                'Saç derisinin kan dolaşımını ve beslenmeini iyileştirir',
+                'Anti-aging etkisi - saç derisi gençleşmesi'
               ],
-              process: 'Kan alınır, santrifüj edilir ve elde edilen PRP saç derisine enjekte edilir.',
-              duration: '30-45 dakika',
-              recovery: 'Hemen normal yaşama dönüş'
+              process: 'PRP tedavisi beş aşamadan oluşur: (1) Kan Alma: Hastadan 8-16ml venöz kan alınır, antikoagülan içeren özel tüplere konulur. (2) İlk Santrifüj: 3000-3600 rpm\'de 5-8 dakika santrifüj edilir, kan üç tabakaya ayrılır (plazma-buffy coat-eritrositler). (3) İkinci Santrifüj: Plazma toplanır ve tekrar santrifüj edilir, yüksek konsantrasyonlu PRP elde edilir. (4) Aktivasyon: PRP kalsiyum klorür veya trombin ile aktive edilir (isteğe bağlı). (5) Enjeksiyon: Hazırlanan PRP, 27-30G iğne ile saç derisine mezoterapötik teknikle enjekte edilir (1cm aralıklarla, intradermal/subkutan). Tüm işlem 30-45 dakika sürer.',
+              duration: '30-45 dakika (kan alma dahil)',
+              recovery: 'Hemen normal yaşama dönüş - hafif kızarıklık 2-4 saat içinde geçer'
             },
             {
               title: 'Mezoterapi',
@@ -381,7 +390,7 @@ export const content: Record<string, ContentData> = {
     hero: {
       title: 'Hair Transplant Turkey',
       subtitle: 'Professional DHI and FUE Hair Transplant Techniques',
-      description: 'World-class hair transplant and restoration center offering the most innovative DHI (Direct Hair Implantation) and FUE (Follicular Unit Extraction) techniques. Our hair transplant procedures enriched with advanced regenerative treatments including stem cell therapy, PRP (Platelet Rich Plasma), and mesotherapy guarantee 100% natural and permanent results. With over 15 years of experience, thousands of satisfied patients from 50+ countries, and Turkey\'s most experienced hair transplant surgeons, we deliver excellence in medical aesthetics. As member clinics of EHRS and ISHRS, we provide personalized treatment protocols and lifetime follow-up guarantee for each patient.',
+      description: '15+ years experience, 8000+ successful operations, 98% patient satisfaction. Natural results with DHI and FUE hair transplant, PRP, stem cell treatments. ISHRS certified surgeons and modern facilities at your service.',
       cta1: 'Free Consultation',
       cta2: 'Discover Our Services',
       whatsapp: 'WhatsApp Contact'

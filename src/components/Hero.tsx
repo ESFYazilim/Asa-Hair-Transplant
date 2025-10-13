@@ -25,25 +25,25 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-tight leading-tight font-commuters">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 sm:mb-6 tracking-tight leading-tight font-commuters px-2">
             {content.hero.title}
-            <span className="block font-bold text-emerald-300 font-commuters">{content.hero.subtitle}</span>
+            <span className="block font-bold text-emerald-300 font-commuters mt-2">{content.hero.subtitle}</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/90 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 font-light leading-relaxed max-w-3xl mx-auto px-2">
             {content.hero.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2 max-w-4xl mx-auto">
             <button
               onClick={scrollToServices}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
               {content.hero.cta1}
             </button>
             <button
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
             >
               {content.hero.cta2}
             </button>
@@ -54,13 +54,13 @@ const Hero = () => {
                   en: 'Hello! 👋 I would like to get information about ASA Hair Transplant. Can I get detailed information about hair transplant, PRP treatment and your other services? 🌟',
                   de: 'Hallo! 👋 Ich möchte Informationen über ASA Haartransplantation erhalten. Kann ich detaillierte Informationen über Haartransplantation, PRP-Behandlung und Ihre anderen Dienstleistungen erhalten? 🌟'
                 };
-                
+
                 const currentLang = currentLanguage;
                 const message = encodeURIComponent(messages[currentLang] || messages.tr);
                 const whatsappUrl = `https://wa.me/${content.contact.whatsapp.number.replace(/[^0-9]/g, '')}?text=${message}`;
                 window.open(whatsappUrl, '_blank');
               }}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2"
             >
               <MessageCircle size={20} />
               {content.hero.whatsapp}
