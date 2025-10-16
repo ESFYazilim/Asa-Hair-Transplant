@@ -18,28 +18,13 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const experiencesLabel = currentLanguage === 'tr' ? 'Hasta Deneyimleri' : currentLanguage === 'en' ? 'Patient Experiences' : 'Patientenerfahrungen';
-
   const navLinks = [
-    { href: '#services', label: content.navigation.services },
-    { href: '#treatments', label: content.navigation.treatments },
-    { href: '#about', label: content.navigation.about },
-    { href: '#achievements', label: content.navigation.achievements },
-    { href: '#testimonials', label: content.navigation.testimonials },
-    { href: '#contact', label: content.navigation.contact }
+    { to: '/', label: content.navigation.home },
+    { to: '/treatments', label: content.navigation.treatments },
+    { to: '/about', label: content.navigation.about },
+    { to: '/patient-experiences', label: currentLanguage === 'tr' ? 'Hasta Deneyimleri' : currentLanguage === 'en' ? 'Patient Experiences' : 'Patientenerfahrungen' },
+    { to: '/contact', label: content.navigation.contact }
   ];
-
-  const scrollToSection = (href: string) => {
-    if (location.pathname !== '/') {
-      window.location.href = '/' + href;
-      return;
-    }
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -64,28 +49,20 @@ const Navigation = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
               {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
+                <Link
+                  key={link.to}
+                  to={link.to}
                   className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
-                    isScrolled
+                    location.pathname === link.to
+                      ? 'text-emerald-600 font-semibold'
+                      : isScrolled
                       ? 'text-gray-700 hover:text-emerald-600'
                       : 'text-white/90 hover:text-emerald-300'
                   }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
-              <Link
-                to="/patient-experiences"
-                className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
-                  isScrolled
-                    ? 'text-gray-700 hover:text-emerald-600'
-                    : 'text-white/90 hover:text-emerald-300'
-                }`}
-              >
-                {experiencesLabel}
-              </Link>
               <LanguageSelector />
             </div>
           </div>
@@ -113,21 +90,19 @@ const Navigation = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-lg rounded-lg mt-2 shadow-lg">
               {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-gray-700 hover:text-emerald-600 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200"
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200 ${
+                    location.pathname === link.to
+                      ? 'text-emerald-600 font-semibold bg-emerald-50'
+                      : 'text-gray-700 hover:text-emerald-600 hover:bg-gray-50'
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               ))}
-              <Link
-                to="/patient-experiences"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-emerald-600 block px-3 py-2 text-base font-medium w-full text-left transition-colors duration-200"
-              >
-                {experiencesLabel}
-              </Link>
             </div>
           </div>
         )}

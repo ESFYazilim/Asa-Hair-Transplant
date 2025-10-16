@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLanguage } from './hooks/useLanguage';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
+import TreatmentsPage from './pages/TreatmentsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 import PatientExperiences from './pages/PatientExperiences';
 import WhatsAppButton from './components/WhatsAppButton';
 
@@ -37,6 +40,9 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/treatments" element={<TreatmentsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/patient-experiences" element={<PatientExperiences />} />
         </Routes>
         <WhatsAppButton />

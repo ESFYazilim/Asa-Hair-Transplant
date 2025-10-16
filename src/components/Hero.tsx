@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
@@ -35,18 +36,18 @@ const Hero = () => {
             {content.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2 max-w-4xl mx-auto">
-            <button
-              onClick={scrollToServices}
-              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 text-center"
             >
               {content.hero.cta1}
-            </button>
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+            </Link>
+            <Link
+              to="/treatments"
+              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-emerald-800 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 text-center"
             >
               {content.hero.cta2}
-            </button>
+            </Link>
             <button
               onClick={() => {
                 const messages = {
