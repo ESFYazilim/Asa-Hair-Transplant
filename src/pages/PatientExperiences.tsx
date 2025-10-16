@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Star, Calendar, Award, ChevronRight } from 'lucide-react';
 import { supabase, Testimonial, BeforeAfterPhoto } from '../lib/supabase';
 import { useLanguage } from '../hooks/useLanguage';
+import Contact from '../components/Contact';
 
 const PatientExperiences = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
@@ -260,29 +261,7 @@ const PatientExperiences = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-emerald-900 to-emerald-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            {currentLanguage === 'tr' && 'Siz de Hikayenizin Parçası Olun'}
-            {currentLanguage === 'en' && 'Be Part of Your Own Story'}
-            {currentLanguage === 'de' && 'Werden Sie Teil Ihrer eigenen Geschichte'}
-          </h2>
-          <p className="text-xl text-emerald-100 mb-8">
-            {currentLanguage === 'tr' && 'Ücretsiz konsültasyon için hemen iletişime geçin'}
-            {currentLanguage === 'en' && 'Contact us now for a free consultation'}
-            {currentLanguage === 'de' && 'Kontaktieren Sie uns jetzt für eine kostenlose Beratung'}
-          </p>
-          <button
-            onClick={() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' })}
-            className="bg-white text-emerald-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-emerald-50 transition-colors duration-300"
-          >
-            {currentLanguage === 'tr' && 'İletişime Geç'}
-            {currentLanguage === 'en' && 'Contact Us'}
-            {currentLanguage === 'de' && 'Kontaktieren Sie uns'}
-          </button>
-        </div>
-      </section>
+      <Contact />
     </div>
   );
 };

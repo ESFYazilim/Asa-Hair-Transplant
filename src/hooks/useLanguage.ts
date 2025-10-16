@@ -4,21 +4,14 @@ import { content, ContentData } from '../data/content';
 export type Language = 'tr' | 'en' | 'de';
 
 export const useLanguage = () => {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('tr');
-
-  useEffect(() => {
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
     const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && content[savedLanguage]) {
-      setCurrentLanguage(savedLanguage);
-    }
-  }, []);
+    return (savedLanguage && content[savedLanguage]) ? savedLanguage : 'tr';
+  });
 
   const changeLanguage = (lang: Language) => {
     setCurrentLanguage(lang);
     localStorage.setItem('language', lang);
-    
-    // Reload the page to apply language changes
-    window.location.reload();
   };
 
   return {

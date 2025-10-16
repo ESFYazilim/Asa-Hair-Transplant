@@ -26,9 +26,11 @@ const Navigation = () => {
     { to: '/contact', label: content.navigation.contact }
   ];
 
+  const isHomePage = location.pathname === '/';
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-black/20 backdrop-blur-sm'
+      isScrolled || !isHomePage ? 'bg-white/95 backdrop-blur-lg shadow-lg' : 'bg-black/20 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -55,7 +57,7 @@ const Navigation = () => {
                   className={`px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
                     location.pathname === link.to
                       ? 'text-emerald-600 font-semibold'
-                      : isScrolled
+                      : (isScrolled || !isHomePage)
                       ? 'text-gray-700 hover:text-emerald-600'
                       : 'text-white/90 hover:text-emerald-300'
                   }`}
@@ -74,8 +76,8 @@ const Navigation = () => {
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`p-2 transition-colors duration-200 ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-emerald-600' 
+                  (isScrolled || !isHomePage)
+                    ? 'text-gray-700 hover:text-emerald-600'
                     : 'text-white hover:text-emerald-300'
                 }`}
               >
