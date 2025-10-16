@@ -10,8 +10,8 @@ export const useLanguage = () => {
   });
 
   const changeLanguage = (lang: Language) => {
-    setCurrentLanguage(lang);
     localStorage.setItem('language', lang);
+    window.location.reload();
   };
 
   return {

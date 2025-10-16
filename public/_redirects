@@ -1,2 +1,5 @@
+# SPA routing - redirect all routes to index.html
+/*    /index.html   200
+
 # API routes for email sending
 /api/* /.netlify/functions/:splat 200

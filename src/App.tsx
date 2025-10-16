@@ -7,6 +7,7 @@ import TreatmentsPage from './pages/TreatmentsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PatientExperiences from './pages/PatientExperiences';
+import NotFound from './pages/NotFound';
 import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/patient-experiences" element={<PatientExperiences />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />
       </div>
