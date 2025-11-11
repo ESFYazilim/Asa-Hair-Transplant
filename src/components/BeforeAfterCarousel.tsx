@@ -1,35 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { supabase, BeforeAfterPhoto } from '../lib/supabase';
+import { beforeAfterPhotos, BeforeAfterPhoto } from '../data/beforeAfterData';
 import { useLanguage } from '../hooks/useLanguage';
 
 const BeforeAfterCarousel = () => {
-  const [photos, setPhotos] = useState<BeforeAfterPhoto[]>([]);
+  const [photos] = useState<BeforeAfterPhoto[]>(beforeAfterPhotos);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
   const { currentLanguage } = useLanguage();
-
-  useEffect(() => {
-    fetchPhotos();
-  }, []);
-
-  const fetchPhotos = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('before_after_photos')
-        .select('*')
-        .eq('is_published', true)
-        .eq('is_featured', true)
-        .order('display_order', { ascending: true });
-
-      if (error) throw error;
-      setPhotos(data || []);
-    } catch (error) {
-      console.error('Error fetching photos:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
@@ -50,14 +27,6 @@ const BeforeAfterCarousel = () => {
     if (currentLanguage === 'en') return photo.description_en;
     return photo.description_de;
   };
-
-  if (loading) {
-    return (
-      <div className="w-full h-96 flex items-center justify-center bg-gray-100">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600"></div>
-      </div>
-    );
-  }
 
   if (photos.length === 0) {
     return null;
@@ -92,7 +61,7 @@ const BeforeAfterCarousel = () => {
                   {currentLanguage === 'de' && 'Vorher'}
                 </div>
                 <img
-                  src={currentPhoto.before_photo_url}
+                  src={currentPhoto.before_photo}
                   alt="Before"
                   className="w-full h-96 object-cover rounded-lg"
                 />
@@ -106,7 +75,7 @@ const BeforeAfterCarousel = () => {
                   {currentLanguage === 'de' && `Nachher (${currentPhoto.months_after} Monate)`}
                 </div>
                 <img
-                  src={currentPhoto.after_photo_url}
+                  src={currentPhoto.after_photo}
                   alt="After"
                   className="w-full h-96 object-cover rounded-lg"
                 />
