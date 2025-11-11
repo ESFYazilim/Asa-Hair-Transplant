@@ -6,6 +6,7 @@ const Testimonials = () => {
   const { content } = useLanguage();
   
   const testimonialImages = [
+    '/images/testimonials/abuzer.jpg',
     '/images/testimonials/patient-1.jpg',
     '/images/testimonials/patient-2.jpg',
     '/images/testimonials/patient-3.jpg'

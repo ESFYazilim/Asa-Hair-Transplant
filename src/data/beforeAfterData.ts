@@ -13,6 +13,18 @@ export interface BeforeAfterPhoto {
 
 export const beforeAfterPhotos: BeforeAfterPhoto[] = [
   {
+    id: '0',
+    treatment_type: 'FUE Hair Transplant',
+    before_photo: '/images/before-after/abuzer.jpg',
+    after_photo: '/images/before-after/abuzer.jpg',
+    months_after: 12,
+    graft_count: 4500,
+    description_tr: 'Örnek fotoğraf - Abuzer',
+    description_en: 'Sample photo - Abuzer',
+    description_de: 'Beispielfoto - Abuzer',
+    display_order: 0
+  },
+  {
     id: '1',
     treatment_type: 'FUE Hair Transplant',
     before_photo: '/images/before-after/fue-before-1.jpg',

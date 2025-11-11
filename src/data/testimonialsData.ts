@@ -12,6 +12,17 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
+    id: '0',
+    patient_name: 'Abuzer',
+    patient_role: 'Örnek Hasta',
+    content_tr: 'Bu bir örnek yorum. Gerçek hasta yorumlarını buraya ekleyebilirsiniz.',
+    content_en: 'This is a sample review. You can add real patient reviews here.',
+    content_de: 'Dies ist eine Beispielbewertung. Sie können hier echte Patientenbewertungen hinzufügen.',
+    rating: 5,
+    treatment_type: 'Örnek',
+    google_review_url: null
+  },
+  {
     id: '1',
     patient_name: 'Ahmet Y.',
     patient_role: 'İstanbul',
