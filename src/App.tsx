@@ -11,12 +11,12 @@ import NotFound from './pages/NotFound';
 import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
-  const { content, currentLanguage } = useLanguage();
+  const { content } = useLanguage();
 
   // Update document title and meta tags when language changes
   React.useEffect(() => {
     document.title = content.meta.title;
-    document.documentElement.lang = currentLanguage;
+    document.documentElement.lang = content === content ? 'tr' : content === content ? 'en' : 'de';
 
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -33,7 +33,7 @@ function App() {
     if (ogDescription) {
       ogDescription.setAttribute('content', content.meta.description);
     }
-  }, [content, currentLanguage]);
+  }, [content]);
 
   return (
     <BrowserRouter>

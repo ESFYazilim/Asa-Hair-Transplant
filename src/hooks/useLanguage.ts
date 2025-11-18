@@ -5,21 +5,13 @@ export type Language = 'tr' | 'en' | 'de';
 
 export const useLanguage = () => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
-    try {
-      const savedLanguage = localStorage.getItem('language') as Language;
-      return (savedLanguage && content[savedLanguage]) ? savedLanguage : 'tr';
-    } catch (error) {
-      return 'tr';
-    }
+    const savedLanguage = localStorage.getItem('language') as Language;
+    return (savedLanguage && content[savedLanguage]) ? savedLanguage : 'tr';
   });
 
   const changeLanguage = (lang: Language) => {
-    try {
-      localStorage.setItem('language', lang);
-      window.location.reload();
-    } catch (error) {
-      console.error('Failed to save language:', error);
-    }
+    localStorage.setItem('language', lang);
+    window.location.reload();
   };
 
   return {

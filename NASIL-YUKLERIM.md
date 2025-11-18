@@ -1,176 +1,89 @@
-# 🚀 HOSTİNGER'A YÜKLEME - BASİT REHBER
+# 🚀 HOSTİNGER'E 2 DAKİKADA YÜKLEME
 
-## 📋 HIZLI ÖZET (3 DAKİKA)
+## YÖNTEM 1: FileZilla ile (EN KOLAY)
 
-```
-1. npm run build          → dist/ klasörü oluşur
-2. Hostinger'a giriş yap  → File Manager aç
-3. dist/ içini kopyala    → public_html/'e yapıştır
-4. Siteyi aç              → https://asahairtransplant.com
-```
+### Adım 1: FileZilla İndir
+- https://filezilla-project.org/ adresinden ücretsiz indir
 
----
+### Adım 2: Hostinger FTP Bilgilerini Al
+1. Hostinger'a giriş yap
+2. **FTP Accounts** bölümüne git
+3. Bilgileri kopyala:
+   - Host: ftp.yourdomain.com
+   - Username: ...
+   - Password: ...
+   - Port: 21
 
-## 📦 ADIM 1: BUILD AL
+### Adım 3: FileZilla'ya Bağlan
+1. FileZilla'yı aç
+2. Host, Username, Password, Port bilgilerini gir
+3. **Quickconnect** tıkla
 
-Terminal/Komut satırında:
+### Adım 4: Dosyaları Sürükle-Bırak
+1. Sol tarafta (Local): `dist/` klasörüne git
+2. Sağ tarafta (Remote): `public_html/` klasörüne git
+3. Sağ taraftaki eski dosyaları sil
+4. Sol taraftaki `dist/` içindeki BÜTÜN dosyaları seç
+5. Sağ tarafa sürükle-bırak
 
-```bash
-npm run build
-```
-
-**Sonuç:** `dist/` klasörü oluşacak (304KB)
-
----
-
-## 🌐 ADIM 2: HOSTİNGER'A GİRİŞ
-
-1. Giriş: https://hpanel.hostinger.com
-2. Sol menü → **Files** → **File Manager**
-3. **public_html** klasörüne gir
-
----
-
-## 🗑️ ADIM 3: ESKİ DOSYALARI SİL
-
-public_html içindeki **eski dosyaları sil** (varsa)
-
-**SAKLA:**
-- .htaccess (yeni versiyonu yüklenecek)
+BITTI! ✅
 
 ---
 
-## 📤 ADIM 4: YENİ DOSYALARI YÜKLE
+## YÖNTEM 2: Hostinger File Manager (YAVAŞ AMA İŞE YARAR)
 
-### Yöntem 1: ZIP ile (Önerilen)
+### Adım 1: File Manager'ı Aç
+1. Hostinger'a giriş yap
+2. **File Manager** tıkla
+3. `public_html/` klasörüne git
 
-```
-1. dist/ içindeki herşeyi seç → zip yap
-2. Hostinger File Manager → Upload zip
-3. Zip'e sağ tık → Extract
-4. Zip dosyasını sil
-```
+### Adım 2: Eski Dosyaları Sil
+- İçindeki tüm dosyaları seç → Delete
 
-### Yöntem 2: Doğrudan
+### Adım 3: Yeni Dosyaları Yükle
+1. **Upload** butonuna tıkla
+2. `dist/` klasöründeki dosyaları seç:
+   - index.html
+   - .htaccess
+   - _redirects
+   - Asa Hair Transplant-renkli.png
+   
+3. Klasörleri yükle:
+   - api/ klasörünü yükle (içinde send-email.php var)
+   - assets/ klasörünü yükle (içinde CSS ve JS var)
 
-```
-1. dist/ klasörünü aç
-2. İçindeki HERŞEY'i seç
-3. File Manager penceresine sürükle
-```
+### Adım 4: İzinleri Ayarla
+1. `api/send-email.php` → sağ tık → Permissions → 755
+2. `.htaccess` → sağ tık → Permissions → 644
 
----
-
-## ✅ ADIM 5: DOSYA YAPISI KONTROLÜ
-
-**public_html/** içinde şunlar olmalı:
-
-```
-public_html/
-  ├── index.html                      ✓
-  ├── .htaccess                       ✓
-  ├── _redirects                      ✓
-  ├── Asa Hair Transplant-renkli.png  ✓
-  ├── assets/
-  │   ├── index-Dd7AsZ7G.css         ✓
-  │   └── index-esBq9hs-.js          ✓
-  └── images/
-      ├── before-after/
-      │   └── abuzer.jpg              ✓
-      └── testimonials/
-          └── abuzer.jpg              ✓
-```
-
-**❌ OLMAMASI GEREKENLER:**
-- dist/ (klasör adı)
-- src/
-- node_modules/
-- package.json
+BITTI! ✅
 
 ---
 
-## 🔒 ADIM 6: SSL AYARLARI
+## TEST ET
 
-1. Sol menü → **SSL**
-2. Domain'i bul: **asahairtransplant.com**
-3. SSL aktif mi kontrol et
-4. **Force HTTPS** toggle'ını aç
+Tarayıcıda aç: `https://yourdomain.com`
 
-Aktif değilse:
-- **Install SSL** → **Let's Encrypt (Free)**
-
----
-
-## 🧪 ADIM 7: TEST ET
-
-### Browser'da aç:
-
-```
-✓ https://asahairtransplant.com
-✓ https://asahairtransplant.com/treatments
-✓ https://asahairtransplant.com/about
-✓ https://asahairtransplant.com/contact
-```
-
-### F12 → Console kontrol:
-- ❌ Kırmızı hata yok
-- ✅ Sayfa açılıyor
+Çalışmıyorsa:
+1. Cache temizle (Ctrl + F5)
+2. `.htaccess` dosyasının yüklendiğini kontrol et
+3. `index.html` dosyasının `public_html/` içinde olduğunu kontrol et
 
 ---
 
-## 🔧 SORUN ÇÖZÜM
+## SORUN MU VAR?
 
-| Sorun | Çözüm |
-|-------|-------|
-| Beyaz ekran | F12 → Console → Hata kontrol |
-| 404 | .htaccess dosyası var mı? |
-| CSS yüklenmiyor | assets/ klasörü var mı? |
-| Fotoğraf yok | images/ klasörü var mı? |
+**Beyaz sayfa görüyorum:**
+- F12 bas → Console → Hataları oku
+- Genellikle: dosyalar yanlış yere yüklenmiş
+- Düzelt: `public_html/dist/index.html` değil, `public_html/index.html` olmalı
 
-**Detaylı çözümler:** `BEYAZ-EKRAN-COZUMU.md`
+**404 hatası:**
+- `.htaccess` yüklenmemiş
+- Yükle ve 644 izni ver
 
----
+**Email çalışmıyor:**
+- Hostinger cPanel → Email Accounts
+- `info@yourdomain.com` oluştur
+- PHP mail() aktif mi kontrol et
 
-## ✅ KONTROL LİSTESİ
-
-- [ ] `npm run build` çalıştırıldı
-- [ ] dist/ klasörü oluştu
-- [ ] Hostinger'a giriş yapıldı
-- [ ] public_html temizlendi
-- [ ] Dosyalar yüklendi
-- [ ] .htaccess var
-- [ ] SSL aktif
-- [ ] Site açılıyor
-
----
-
-## 🎉 BAŞARILI!
-
-Site live: **https://asahairtransplant.com**
-
-### Sonraki adımlar:
-
-1. **Fotoğrafları ekle** → `FOTOGRAFLAR-NASIL-EKLENIR.md`
-2. **Email ayarla** → info@asahairtransplant.com
-3. **WhatsApp güncelle** → Numara değiştir
-
----
-
-## 📚 DÖKÜMANTASYON
-
-- **HOSTINGER-ADIMLAR.txt** → Detaylı rehber (bu dosya)
-- **BEYAZ-EKRAN-COZUMU.md** → Sorun giderme
-- **FOTOGRAFLAR-NASIL-EKLENIR.md** → Fotoğraf ekleme
-- **SITE-HAZIR.md** → Genel özet
-
----
-
-## 📞 YARDIM
-
-Sorun devam ediyorsa:
-
-1. F12 → Console → Screenshot al
-2. F12 → Network → Failed istekleri kontrol et
-3. Hostinger error log'ları kontrol et
-
-**Başarılar!** 🚀
