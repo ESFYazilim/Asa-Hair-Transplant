@@ -6,9 +6,10 @@ const Testimonials = () => {
   const { content } = useLanguage();
   
   const testimonialImages = [
-    'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    'https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg?auto=compress&cs=tinysrgb&w=200&h=200'
+    '/images/testimonials/abuzer.jpg',
+    '/images/testimonials/patient-1.jpg',
+    '/images/testimonials/patient-2.jpg',
+    '/images/testimonials/patient-3.jpg'
   ];
   
   const testimonials = content.testimonials.items.map((testimonial, index) => ({

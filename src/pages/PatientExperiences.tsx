@@ -1,46 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Star, Calendar, Award, ChevronRight } from 'lucide-react';
-import { supabase, Testimonial, BeforeAfterPhoto } from '../lib/supabase';
+import { testimonials as testimonialsData, Testimonial } from '../data/testimonialsData';
+import { beforeAfterPhotos, BeforeAfterPhoto } from '../data/beforeAfterData';
 import { useLanguage } from '../hooks/useLanguage';
 import Contact from '../components/Contact';
 
 const PatientExperiences = () => {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [photos, setPhotos] = useState<BeforeAfterPhoto[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [testimonials] = useState<Testimonial[]>(testimonialsData);
+  const [photos] = useState<BeforeAfterPhoto[]>(beforeAfterPhotos);
   const [selectedFilter, setSelectedFilter] = useState<string>('all');
   const { currentLanguage } = useLanguage();
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const [testimonialsResponse, photosResponse] = await Promise.all([
-        supabase
-          .from('testimonials')
-          .select('*')
-          .eq('is_published', true)
-          .order('created_at', { ascending: false }),
-        supabase
-          .from('before_after_photos')
-          .select('*')
-          .eq('is_published', true)
-          .order('display_order', { ascending: true })
-      ]);
-
-      if (testimonialsResponse.error) throw testimonialsResponse.error;
-      if (photosResponse.error) throw photosResponse.error;
-
-      setTestimonials(testimonialsResponse.data || []);
-      setPhotos(photosResponse.data || []);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const getContent = (testimonial: Testimonial) => {
     if (currentLanguage === 'tr') return testimonial.content_tr;
@@ -66,14 +35,6 @@ const PatientExperiences = () => {
     }
     return filter;
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-emerald-600"></div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -168,7 +129,7 @@ const PatientExperiences = () => {
               <div key={photo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
                 <div className="relative">
                   <img
-                    src={photo.before_photo_url}
+                    src={photo.before_photo}
                     alt="Before"
                     className="w-full h-64 object-cover"
                   />
@@ -180,7 +141,7 @@ const PatientExperiences = () => {
                 </div>
                 <div className="relative">
                   <img
-                    src={photo.after_photo_url}
+                    src={photo.after_photo}
                     alt="After"
                     className="w-full h-64 object-cover"
                   />

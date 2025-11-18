@@ -1,27 +1,347 @@
-==========================================
-  HOSTİNGER YÜKLEME ADIMLARI - 3 DAKİKA
-==========================================
+═══════════════════════════════════════════════════════════════
+  HOSTİNGER'A SİTE YÜKLEME - ADIM ADIM REHBER
+═══════════════════════════════════════════════════════════════
 
-1. Hostinger'a giriş yap
-2. File Manager'ı aç
-3. public_html/ klasörüne gir
-4. İçindeki BÜTÜN eski dosyaları sil
-5. Aşağıdaki dosyaları sırayla yükle:
+📦 HAZIRLIK: BUILD ALMA
+═══════════════════════════════════════════════════════════════
 
-YÜKLENECEK DOSYALAR:
-=====================
-dist/index.html                         → public_html/index.html
-dist/.htaccess                          → public_html/.htaccess
-dist/_redirects                         → public_html/_redirects
-dist/Asa Hair Transplant-renkli.png    → public_html/Asa Hair Transplant-renkli.png
-dist/api/send-email.php                 → public_html/api/send-email.php
-dist/assets/index-CC6SjOId.css         → public_html/assets/index-CC6SjOId.css
-dist/assets/index-DsfMJQm2.js          → public_html/assets/index-DsfMJQm2.js
+1. Bilgisayarınızda terminal/komut satırını açın
+2. Proje klasörüne gidin
+3. Bu komutu çalıştırın:
 
-6. Dosya izinlerini ayarla:
-   - api/send-email.php → 755
-   - .htaccess → 644
+   npm run build
 
-7. Siteyi aç: https://yourdomain.com
+4. "dist" klasörü oluşacak (tüm site dosyaları içinde)
 
-BİTTİ! ✅
+
+═══════════════════════════════════════════════════════════════
+  ADIM 1: HOSTİNGER'A GİRİŞ
+═══════════════════════════════════════════════════════════════
+
+1. https://hpanel.hostinger.com adresine gidin
+2. Email ve şifrenizle giriş yapın
+3. Dashboard açılacak
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 2: DOMAIN KONTROLÜ
+═══════════════════════════════════════════════════════════════
+
+1. Sol menüden "Domains" seçeneğine tıklayın
+2. "asahairtransplant.com" domain'ini bulun
+3. Domain'in aktif olduğunu kontrol edin
+
+NOT: Eğer domain yoksa:
+   - "Add Domain" tıklayın
+   - "asahairtransplant.com" yazın
+   - Talimatları takip edin
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 3: FILE MANAGER'I AÇMA
+═══════════════════════════════════════════════════════════════
+
+1. Sol menüden "Files" → "File Manager" seçin
+   (ya da "Hosting" → sitenizi seçin → "File Manager")
+
+2. File Manager açılacak
+
+3. Şu klasörü bulun:
+   public_html/
+
+4. public_html klasörüne çift tıklayın (içine girin)
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 4: ESKİ DOSYALARI TEMİZLEME (Varsa)
+═══════════════════════════════════════════════════════════════
+
+⚠️ ÖNEMLİ: Eğer public_html içinde dosyalar varsa:
+
+1. Tüm eski dosyaları seçin:
+   - index.html
+   - Eski klasörler
+   - Diğer dosyalar
+
+2. Sağ tıklayın → "Delete" seçin
+3. Onaylayın
+
+NOT: .htaccess varsa SAKLAYIN (zaten yeni versiyonu yüklenecek)
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 5: YENİ DOSYALARI YÜKLEME
+═══════════════════════════════════════════════════════════════
+
+📁 YÜKLENECEK DOSYALAR:
+
+dist/ klasörü içindeki HERŞEY:
+  ├── index.html
+  ├── .htaccess
+  ├── _redirects
+  ├── Asa Hair Transplant-renkli.png
+  ├── assets/ (klasör)
+  │   ├── index-Dd7AsZ7G.css
+  │   └── index-esBq9hs-.js
+  └── images/ (klasör)
+      ├── before-after/
+      └── testimonials/
+
+─────────────────────────────────────────────────────────────
+
+YÜKLEME YÖNTEMİ 1: ZIP İLE YÜKLEME (ÖNERİLEN)
+
+1. Bilgisayarınızda:
+   - dist/ klasörü içindeki TÜM dosyaları seçin
+   - Sağ tıklayın → "Sıkıştır" / "Compress" / "Zip"
+   - "site-dosyalari.zip" adıyla kaydedin
+
+2. Hostinger File Manager'da:
+   - public_html içindeyken "Upload" butonuna tıklayın
+   - "site-dosyalari.zip" dosyasını seçin
+   - Yükleme bitene kadar bekleyin
+
+3. ZIP'i çıkartın:
+   - Yüklenen "site-dosyalari.zip" dosyasına sağ tıklayın
+   - "Extract" seçin
+   - "Extract to: /public_html" olduğundan emin olun
+   - "Extract" butonuna tıklayın
+
+4. ZIP dosyasını silin:
+   - "site-dosyalari.zip" seçin
+   - Sağ tık → Delete
+
+─────────────────────────────────────────────────────────────
+
+YÜKLEME YÖNTEMİ 2: DOĞRUDAN YÜKLEME
+
+1. Hostinger File Manager'da:
+   - public_html içindeyken "Upload" butonuna tıklayın
+
+2. Bilgisayarınızdan:
+   - dist/ klasörünü açın
+   - TÜM dosya ve klasörleri seçin
+   - File Manager penceresine sürükleyin
+
+3. Yükleme bitene kadar bekleyin (progress bar göreceksiniz)
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 6: DOSYA YAPISI KONTROLÜ
+═══════════════════════════════════════════════════════════════
+
+public_html/ içinde şunlar olmalı:
+
+✓ index.html
+✓ .htaccess
+✓ _redirects
+✓ Asa Hair Transplant-renkli.png
+✓ assets/ (klasör)
+✓ images/ (klasör)
+✓ api/ (klasör - boş olabilir)
+
+❌ OLMASALAR GEREKEN:
+❌ dist/ (klasör adı)
+❌ node_modules/
+❌ src/
+❌ package.json
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 7: .HTACCESS DOSYASI KONTROLÜ
+═══════════════════════════════════════════════════════════════
+
+1. File Manager'da .htaccess dosyasını bulun
+   (Görmüyorsanız: Sağ üst köşe → Settings → "Show Hidden Files")
+
+2. .htaccess'e sağ tıklayın → "Edit"
+
+3. İçeriğinde şunlar olmalı:
+
+   RewriteEngine On
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteRule . /index.html [L]
+
+4. Yoksa bu içeriği ekleyin ve "Save" yapın
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 8: DOSYA İZİNLERİ AYARLAMA
+═══════════════════════════════════════════════════════════════
+
+1. Klasörler için:
+   - assets/ klasörüne sağ tık → "Permissions"
+   - 755 yapın
+   - "Change recursively" işaretleyin
+   - Apply
+
+2. images/ klasörü için aynısını yapın
+
+3. Dosyalar için:
+   - index.html → sağ tık → Permissions → 644
+   - .htaccess → sağ tık → Permissions → 644
+
+NOT: Genelde otomatik doğru ayarlanır
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 9: SSL (HTTPS) AYARLARI
+═══════════════════════════════════════════════════════════════
+
+1. Sol menüden "SSL" seçeneğine gidin
+
+2. "asahairtransplant.com" domain'ini bulun
+
+3. SSL durumunu kontrol edin:
+   ✓ Aktif olmalı (yeşil)
+   ✓ "Let's Encrypt" veya "Premium SSL"
+
+4. Aktif değilse:
+   - "Install SSL" butonuna tıklayın
+   - "Let's Encrypt (Free)" seçin
+   - Kurulumu bekleyin (5-10 dakika)
+
+5. Force HTTPS:
+   - "Force HTTPS" toggle'ını açın
+   - Bu HTTP trafiğini HTTPS'e yönlendirir
+
+
+═══════════════════════════════════════════════════════════════
+  ADIM 10: TEST ETME
+═══════════════════════════════════════════════════════════════
+
+1. Browser'ınızı açın
+
+2. Şu adresleri test edin:
+
+   ✓ https://asahairtransplant.com
+   ✓ https://asahairtransplant.com/treatments
+   ✓ https://asahairtransplant.com/about
+   ✓ https://asahairtransplant.com/contact
+   ✓ https://asahairtransplant.com/patient-experiences
+
+3. Her sayfada F12 tuşuna basın
+   - Console'da kırmızı hata olmamalı
+   - Network tab'da 404 hatası olmamalı
+
+4. Test checklist:
+   ☐ Ana sayfa açılıyor
+   ☐ Dil değiştirme çalışıyor
+   ☐ Navigasyon menüsü çalışıyor
+   ☐ WhatsApp butonu görünüyor
+   ☐ Fotoğraflar yükleniyor
+   ☐ Before/After carousel kayıyor
+   ☐ Tüm sayfalar açılıyor
+
+
+═══════════════════════════════════════════════════════════════
+  SORUN GİDERME
+═══════════════════════════════════════════════════════════════
+
+SORUN 1: Beyaz Ekran
+─────────────────────
+✓ F12 → Console → Hataları kontrol edin
+✓ BEYAZ-EKRAN-COZUMU.md dosyasına bakın
+✓ Cache temizleyin (Ctrl+Shift+R)
+
+SORUN 2: 404 Not Found
+─────────────────────
+✓ .htaccess dosyası var mı kontrol edin
+✓ Dosya yapısı doğru mu kontrol edin
+✓ index.html public_html içinde mi?
+
+SORUN 3: CSS/JS Yüklenmiyor
+─────────────────────────────
+✓ assets/ klasörü public_html içinde mi?
+✓ Dosya isimleri doğru mu? (index-xxx.js)
+✓ Dosya izinleri 644 mi?
+
+SORUN 4: Fotoğraflar Görünmüyor
+─────────────────────────────────
+✓ images/ klasörü public_html içinde mi?
+✓ Fotoğraflar binary olarak yüklendi mi?
+✓ Dosya isimleri küçük harf mi? (abuzer.jpg)
+
+SORUN 5: Domain Çalışmıyor
+─────────────────────────────
+✓ DNS ayarları 24 saat sürebilir
+✓ Hostinger → Domains → DNS kontrol
+✓ SSL sertifikası aktif mi?
+
+SORUN 6: Eski Site Görünüyor
+─────────────────────────────
+✓ Browser cache temizleyin
+✓ Hostinger cache temizleyin (varsa)
+✓ Ctrl + Shift + R ile hard refresh
+
+
+═══════════════════════════════════════════════════════════════
+  EK AYARLAR (OPSİYONEL)
+═══════════════════════════════════════════════════════════════
+
+PERFORMANS İYİLEŞTİRME:
+─────────────────────────
+1. LiteSpeed Cache aktif mi kontrol edin
+2. Gzip compression aktif (zaten .htaccess'te var)
+3. CDN kullanımı (Cloudflare - opsiyonel)
+
+EMAIL AYARLARI:
+─────────────────
+1. Hostinger → Email → Create Email
+2. info@asahairtransplant.com oluşturun
+3. Contact form için email ayarları yapın
+
+
+═══════════════════════════════════════════════════════════════
+  ÖZET: HIZLI KONTROL LİSTESİ
+═══════════════════════════════════════════════════════════════
+
+☐ npm run build komutu çalıştırıldı
+☐ dist/ klasörü oluştu
+☐ Hostinger'a giriş yapıldı
+☐ public_html içi temizlendi
+☐ dist/ içindeki dosyalar yüklendi
+☐ Dosya yapısı doğru (index.html, assets/, images/)
+☐ .htaccess dosyası var ve doğru
+☐ SSL aktif ve force HTTPS açık
+☐ https://asahairtransplant.com açılıyor
+☐ Tüm sayfalar test edildi
+☐ Console'da hata yok
+☐ Fotoğraflar görünüyor
+
+
+═══════════════════════════════════════════════════════════════
+  BAŞARILI! 🎉
+═══════════════════════════════════════════════════════════════
+
+Siteniz https://asahairtransplant.com adresinde LIVE!
+
+Sorun olursa:
+- BEYAZ-EKRAN-COZUMU.md
+- FOTOGRAFLAR-NASIL-EKLENIR.md
+- SITE-HAZIR.md
+
+dosyalarına bakın.
+
+
+═══════════════════════════════════════════════════════════════
+  GELECEK ADIMLAR
+═══════════════════════════════════════════════════════════════
+
+1. Gerçek hasta fotoğraflarını ekleyin
+   → FOTOGRAFLAR-NASIL-EKLENIR.md
+
+2. Contact form email ayarları yapın
+   → info@asahairtransplant.com
+
+3. Google Analytics ekleyin (opsiyonel)
+
+4. Google Search Console'a ekleyin (SEO için)
+
+5. WhatsApp numarasını güncelleyin
+   → src/components/WhatsAppButton.tsx
+
+
+BİTTİ - BAŞARILAR! 🚀
+═══════════════════════════════════════════════════════════════
