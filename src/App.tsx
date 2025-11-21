@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLanguage } from './hooks/useLanguage';
 import Navigation from './components/Navigation';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import TreatmentsPage from './pages/TreatmentsPage';
 import AboutPage from './pages/AboutPage';
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-white overflow-x-hidden w-full">
         <Navigation />
         <Routes>
